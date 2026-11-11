@@ -44,7 +44,7 @@ export function FilterBar({
 
   return (
     <Form ref={formRef} action={action} role="search" className="border border-line bg-paper p-5 sm:p-6">
-      <div className="mb-4 flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-navy-800">
+      <div className="mb-4 flex items-center gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-brand-800">
         <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
         {t.common.filter}
       </div>
@@ -117,7 +117,7 @@ export function FilterBar({
         </div>
       </div>
       {hasFilters && (
-        <Link href={action + (hiddenCategory && values.category ? `?category=${values.category}` : "")} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-600 hover:underline">
+        <Link href={action + (hiddenCategory && values.category ? `?category=${values.category}` : "")} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:underline">
           <X className="h-4 w-4" aria-hidden="true" />
           {t.common.reset}
         </Link>

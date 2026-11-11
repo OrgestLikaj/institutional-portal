@@ -23,7 +23,7 @@ export function SectionHeader({
     <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
       <div className="max-w-2xl">
         {eyebrow && <p className={`eyebrow mb-4 ${light ? "eyebrow-light" : ""}`}>{eyebrow}</p>}
-        <Tag id={id} className={`text-[1.9rem] font-semibold sm:text-[2.3rem] ${light ? "text-white" : "text-navy-900"}`}>
+        <Tag id={id} className={`text-[1.9rem] font-semibold sm:text-[2.3rem] ${light ? "text-white" : "text-brand-900"}`}>
           {title}
         </Tag>
         {description && <p className={`mt-4 text-[1.05rem] ${light ? "text-white/75" : "text-ink-muted"}`}>{description}</p>}
@@ -32,7 +32,7 @@ export function SectionHeader({
         <Link
           href={link.href}
           className={`group inline-flex shrink-0 items-center gap-2 border-b pb-1 text-[0.95rem] font-semibold transition-colors ${
-            light ? "border-gold-300 text-white hover:text-gold-300" : "border-navy-900 text-navy-900 hover:border-navy-600 hover:text-navy-600"
+            light ? "border-gold-300 text-white hover:text-gold-300" : "border-brand-900 text-brand-900 hover:border-brand-600 hover:text-brand-600"
           }`}
         >
           {link.label}

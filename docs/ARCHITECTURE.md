@@ -153,24 +153,38 @@ The matching WordPress custom post types, taxonomies and ACF fields are in
 
 ## 6. Visual direction
 
-**Character:** a European public institution, quiet and exact. Authority comes
-from proportion, typography and restraint rather than decoration.
+> **Update — official identity applied.** The prototype now follows the visual
+> identity guideline of the *Gjykata e Posaçme e Shkallës së Parë për
+> Korrupsionin dhe Krimin e Organizuar* (GJKKO). Everything below reflects it.
 
-- **Colour.** Navy (`#10243A`) and white carry the identity. Dark blue
-  (`#183B56`) and institutional blue (`#245B7A`) are used for interaction and
-  depth. Gold (`#B79A60`) appears only as hairlines, rules and small markers; for
-  gold *text* on light backgrounds the darker `gold-700` (`#7A6234`) is used to
-  keep WCAG AA contrast. All tokens live in `src/app/globals.css` (`@theme`).
-- **Typography.** Source Serif 4 for headings (institutional, European, good
-  Albanian glyph coverage: ë, ç) and Source Sans 3 for interface and body text.
-  Body 17px / 1.65; headings set tight with small caps-style eyebrows.
+**Character:** a European court website, quiet and exact. Authority comes from
+proportion, typography and restraint rather than decoration.
+
+- **Colour (guideline "KOLORET").** Burgundy `#873132` (Pantone 7624C) is the
+  primary colour, with a deep burgundy scale (`brand-950 … brand-50`) for dark
+  surfaces and headings. Gold `#C69D52` (Pantone 7407C) is used for hairlines,
+  rules and small markers; gold *text* on light backgrounds uses `gold-700`
+  (`#85632A`) for AA contrast. Grey `#414042` (Pantone 447C) is the `charcoal`
+  token, and the text colours are derived from it. All tokens live in
+  `src/app/globals.css` (`@theme`); every pairing used passes WCAG AA.
+- **Typography (guideline "TYPOGRAPHY").** Open Sans, the primary brand font,
+  is used for interface, body and headings (via `next/font`, latin-ext for ë/ç).
+  Helvetica, the secondary font, is the fallback stack.
+- **Logo (guideline "VARIACIONET").** The icon is extracted as vector artwork
+  from the guideline PDF (`scripts/extract-logo-from-guideline.py` →
+  `public/brand/`). The header uses the horizontal lockup: icon · divider ·
+  three-line name in Open Sans Bold. Narrow screens use the icon-only variant,
+  and the footer uses the white-on-burgundy variant. The guideline's misuse rules
+  are respected: no recolouring, gradients, outlines, stretching, or placement
+  over busy images.
 - **Shape.** Square or 2px corners, 1px borders, no drop shadows except on
   floating layers (menus, dialogs).
 - **Imagery.** Neutral architectural line drawings (columns, arcades,
-  stairways) generated as SVG. No people, no identifiable buildings. Replace
-  with commissioned photography via the CMS.
+  stairways) generated as SVG in the brand palette. No people, no identifiable
+  buildings. Replace with commissioned photography via the CMS.
 - **Motion.** Short fades and 8px rises on scroll, menu transitions under
   200ms, all disabled under `prefers-reduced-motion`.
-- **Signature details.** A thin gold rule under section eyebrows, a vertical
-  gold marker on the active navigation item, date blocks for announcements,
-  and a crest-style emblem placeholder.
+- **Demo marking.** While the site is a prototype, a gold banner on every page
+  states that it is not the court's official website
+  (`NEXT_PUBLIC_DEMO_BANNER=false` removes it for the approved production site),
+  and pages are `noindex`.

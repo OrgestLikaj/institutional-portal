@@ -10,7 +10,7 @@ type Props = { article: NewsArticle; locale: Locale; readMore: string; priority?
 function Meta({ article, locale, light = false }: { article: NewsArticle; locale: Locale; light?: boolean }) {
   return (
     <p className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.8rem] ${light ? "text-white/75" : "text-ink-muted"}`}>
-      <span className={`font-semibold uppercase tracking-[0.12em] ${light ? "text-gold-300" : "text-navy-600"}`}>{article.category.name}</span>
+      <span className={`font-semibold uppercase tracking-[0.12em] ${light ? "text-gold-300" : "text-brand-600"}`}>{article.category.name}</span>
       <span aria-hidden="true" className={`h-3 w-px ${light ? "bg-white/30" : "bg-line"}`} />
       <time dateTime={article.date}>{formatDate(article.date, locale)}</time>
     </p>
@@ -21,8 +21,8 @@ function Meta({ article, locale, light = false }: { article: NewsArticle; locale
 export function NewsCard({ article, locale, readMore, priority }: Props) {
   const url = href(locale, `/news/${article.slug}`);
   return (
-    <article className="group relative flex h-full flex-col border border-line bg-white transition-colors hover:border-navy-600">
-      <div className="relative aspect-[3/2] overflow-hidden bg-navy-50">
+    <article className="group relative flex h-full flex-col border border-line bg-white transition-colors hover:border-brand-600">
+      <div className="relative aspect-[3/2] overflow-hidden bg-brand-50">
         <Image
           src={article.image.src}
           alt={article.image.alt}
@@ -35,12 +35,12 @@ export function NewsCard({ article, locale, readMore, priority }: Props) {
       <div className="flex flex-1 flex-col p-6">
         <Meta article={article} locale={locale} />
         <h3 className="mt-3 text-[1.2rem] font-semibold leading-snug">
-          <Link href={url} className="after:absolute after:inset-0 group-hover:text-navy-600">
+          <Link href={url} className="after:absolute after:inset-0 group-hover:text-brand-600">
             {article.title}
           </Link>
         </h3>
         <p className="mt-3 line-clamp-3 text-[0.97rem] text-ink-muted">{article.excerpt}</p>
-        <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-navy-600" aria-hidden="true">
+        <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-brand-600" aria-hidden="true">
           {readMore} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </span>
       </div>
@@ -52,7 +52,7 @@ export function NewsCard({ article, locale, readMore, priority }: Props) {
 export function NewsFeature({ article, locale, readMore, priority }: Props) {
   const url = href(locale, `/news/${article.slug}`);
   return (
-    <article className="group relative flex min-h-[26rem] flex-col justify-end overflow-hidden bg-navy-900 lg:min-h-[32rem]">
+    <article className="group relative flex min-h-[26rem] flex-col justify-end overflow-hidden bg-brand-900 lg:min-h-[32rem]">
       <Image
         src={article.image.src}
         alt={article.image.alt}
@@ -61,7 +61,7 @@ export function NewsFeature({ article, locale, readMore, priority }: Props) {
         priority={priority}
         className="object-cover opacity-80 transition-transform duration-700 group-hover:scale-[1.02]"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-transparent" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/70 to-transparent" />
       <div className="relative p-7 sm:p-10">
         <Meta article={article} locale={locale} light />
         <h3 className="mt-4 max-w-2xl text-[1.6rem] font-semibold leading-tight text-white sm:text-[2rem]">
@@ -83,13 +83,13 @@ export function NewsCompact({ article, locale }: Omit<Props, "readMore">) {
   const url = href(locale, `/news/${article.slug}`);
   return (
     <article className="group relative flex gap-5 border-b border-line py-5 first:pt-0 last:border-b-0">
-      <div className="relative hidden aspect-square w-24 shrink-0 overflow-hidden bg-navy-50 sm:block">
+      <div className="relative hidden aspect-square w-24 shrink-0 overflow-hidden bg-brand-50 sm:block">
         <Image src={article.image.src} alt="" fill sizes="96px" className="object-cover" />
       </div>
       <div>
         <Meta article={article} locale={locale} />
-        <h3 className="mt-2 font-serif text-[1.08rem] font-semibold leading-snug text-navy-900">
-          <Link href={url} className="after:absolute after:inset-0 group-hover:text-navy-600">
+        <h3 className="mt-2 font-display text-[1.08rem] font-semibold leading-snug text-brand-900">
+          <Link href={url} className="after:absolute after:inset-0 group-hover:text-brand-600">
             {article.title}
           </Link>
         </h3>

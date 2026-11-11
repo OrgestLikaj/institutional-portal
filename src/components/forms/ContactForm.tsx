@@ -143,7 +143,7 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
         <div ref={resultRef} tabIndex={-1} role="alert" className="flex gap-3 border border-danger/30 bg-danger/[0.05] p-4 focus:outline-none">
           <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-danger" aria-hidden="true" />
           <div>
-            <p className="font-semibold text-navy-900">{t.contact.errorTitle}</p>
+            <p className="font-semibold text-brand-900">{t.contact.errorTitle}</p>
             <p className="text-sm text-ink-muted">{t.contact.errorText}</p>
           </div>
         </div>
@@ -217,11 +217,11 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
             }}
             aria-invalid={touched.consent && errors.consent ? true : undefined}
             aria-describedby={touched.consent && errors.consent ? "c-consent-error" : undefined}
-            className="mt-1 h-4 w-4 shrink-0 accent-navy-900"
+            className="mt-1 h-4 w-4 shrink-0 accent-brand-900"
           />
           <span>
             {t.contact.consent}{" "}
-            <Link href={href(locale, "/privacy")} className="font-semibold text-navy-600 underline">
+            <Link href={href(locale, "/privacy")} className="font-semibold text-brand-600 underline">
               {t.nav.privacy}
             </Link>
           </span>

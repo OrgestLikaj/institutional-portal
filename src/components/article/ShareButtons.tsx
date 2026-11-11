@@ -18,7 +18,7 @@ export function ShareButtons({ url, title }: { url: string; title: string }) {
     { id: "linkedin" as const, label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}` },
   ];
 
-  const btn = "flex h-10 w-10 items-center justify-center border border-line text-navy-900 transition-colors hover:border-navy-900 hover:bg-navy-900 hover:text-white";
+  const btn = "flex h-10 w-10 items-center justify-center border border-line text-brand-900 transition-colors hover:border-brand-900 hover:bg-brand-900 hover:text-white";
 
   return (
     <div>

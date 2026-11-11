@@ -43,7 +43,7 @@ export default async function ActivitiesPage({ params }: PageProps<"/[locale]/ac
             return (
               <li key={a.id} className="bg-white">
                 <Reveal delay={i * 0.04} className="h-full p-8">
-                  <Icon className="h-7 w-7 text-navy-600" aria-hidden="true" />
+                  <Icon className="h-7 w-7 text-brand-600" aria-hidden="true" />
                   <h3 className="mt-6 text-[1.3rem] font-semibold">{a.title}</h3>
                   <p className="mt-3 text-ink-muted">{a.text}</p>
                 </Reveal>

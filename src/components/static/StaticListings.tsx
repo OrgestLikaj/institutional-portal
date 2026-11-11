@@ -100,7 +100,7 @@ export function StaticAnnouncements({ items, basePath }: { items: Announcement[]
                   href={value ? `${basePath}?category=${value}` : basePath}
                   aria-current={active ? "page" : undefined}
                   className={`block border px-4 py-2 text-sm font-semibold transition-colors ${
-                    active ? "border-navy-900 bg-navy-900 text-white" : "border-line bg-white text-navy-900 hover:border-navy-900"
+                    active ? "border-brand-900 bg-brand-900 text-white" : "border-line bg-white text-brand-900 hover:border-brand-900"
                   }`}
                 >
                   {value ? t.announcements.categories[value] : t.common.allCategories}
@@ -177,7 +177,7 @@ export function StaticDocuments({
                     href={tabLink(c.slug)}
                     aria-current={active ? "page" : undefined}
                     className={`relative block px-4 py-3.5 text-[0.95rem] font-semibold transition-colors after:absolute after:inset-x-4 after:-bottom-px after:h-[3px] ${
-                      active ? "text-navy-900 after:bg-gold-500" : "text-ink-muted after:bg-transparent hover:text-navy-900"
+                      active ? "text-brand-900 after:bg-gold-500" : "text-ink-muted after:bg-transparent hover:text-brand-900"
                     }`}
                   >
                     {c.name}
@@ -219,7 +219,7 @@ export function StaticSearch({ index, basePath }: { index: SearchResult[]; baseP
   return (
     <div className="grid gap-10 lg:grid-cols-12">
       <aside className="lg:col-span-3">
-        <h2 className="mb-1 font-serif text-[1.3rem] font-semibold">{interpolate(t.search.resultsFor, { q })}</h2>
+        <h2 className="mb-1 font-display text-[1.3rem] font-semibold">{interpolate(t.search.resultsFor, { q })}</h2>
         <p className="mb-6 text-sm text-ink-muted" role="status">
           {results.length === 1 ? t.common.result : interpolate(t.common.results, { count: results.length })}
         </p>
@@ -234,7 +234,7 @@ export function StaticSearch({ index, basePath }: { index: SearchResult[]; baseP
                   href={`${basePath}?q=${encodeURIComponent(q)}${k ? `&type=${k}` : ""}`}
                   aria-current={active ? "page" : undefined}
                   className={`flex items-center justify-between border-l-[3px] px-4 py-3 text-[0.95rem] font-semibold ${
-                    active ? "border-gold-500 bg-navy-900 text-white" : "border-transparent text-navy-900 hover:bg-paper"
+                    active ? "border-gold-500 bg-brand-900 text-white" : "border-transparent text-brand-900 hover:bg-paper"
                   }`}
                 >
                   {k ? t.search.groups[k] : t.common.allCategories}
@@ -253,13 +253,13 @@ export function StaticSearch({ index, basePath }: { index: SearchResult[]; baseP
               {r.meta && <span>{r.meta}</span>}
               {r.date && <time dateTime={r.date}>{formatDate(r.date, locale)}</time>}
             </p>
-            <h3 className="mt-1.5 font-serif text-[1.2rem] font-semibold text-navy-900">
-              <Link href={r.href} className="after:absolute after:inset-0 group-hover:text-navy-600 group-hover:underline">
+            <h3 className="mt-1.5 font-display text-[1.2rem] font-semibold text-brand-900">
+              <Link href={r.href} className="after:absolute after:inset-0 group-hover:text-brand-600 group-hover:underline">
                 {r.title}
               </Link>
             </h3>
             <p className="mt-1.5 text-ink-muted">{r.excerpt}</p>
-            <ArrowRight className="absolute right-0 top-8 hidden h-5 w-5 text-line group-hover:text-navy-600 sm:block" aria-hidden="true" />
+            <ArrowRight className="absolute right-0 top-8 hidden h-5 w-5 text-line group-hover:text-brand-600 sm:block" aria-hidden="true" />
           </li>
         ))}
       </ol>

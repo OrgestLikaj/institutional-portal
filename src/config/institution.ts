@@ -18,29 +18,37 @@ import type { Localized } from "@/i18n/config";
 export const institution = {
   /** [INSTITUTION_NAME] */
   name: {
-    sq: "Emri i Institucionit",
-    en: "Institution Name",
+    sq: "Gjykata e Posaçme e Shkallës së Parë për Korrupsionin dhe Krimin e Organizuar",
+    en: "Special Court of First Instance for Corruption and Organised Crime",
   } satisfies Localized,
 
   /** [INSTITUTION_SHORT_NAME] */
   shortName: {
-    sq: "EMRI",
-    en: "NAME",
+    sq: "GJKKO",
+    en: "GJKKO",
   } satisfies Localized,
 
   /** Line under the name in the masthead */
   tagline: {
-    sq: "Institucion i pavarur kushtetues",
-    en: "Independent constitutional institution",
+    sq: "Pushteti gjyqësor",
+    en: "Judiciary",
   } satisfies Localized,
 
-  /** [INSTITUTION_LOGO] — path in /public or absolute URL. Leave null to use the built-in emblem placeholder. */
-  logo: null as string | null,
+  /**
+   * [INSTITUTION_LOGO] — official mark, extracted from the visual identity guideline
+   * (scripts/extract-logo-from-guideline.py). Set to null to fall back to the neutral emblem.
+   *   logo       icon for light backgrounds (burgundy)
+   *   logoLight  icon for dark / burgundy backgrounds (white)
+   *   logoLines  wording of the horizontal lockup — the logo is official in Albanian, so it is not translated
+   */
+  logo: "/brand/logo-icon.svg" as string | null,
+  logoLight: "/brand/logo-icon-white.svg" as string | null,
+  logoLines: ["Gjykata e Posaçme", "e Shkallës së Parë për Korrupsionin", "dhe Krimin e Organizuar"],
 
   /** [INSTITUTION_DESCRIPTION] */
   description: {
-    sq: "Institucioni është organ i pavarur publik, i krijuar me ligj, që ushtron funksionet e tij në përputhje me Kushtetutën dhe legjislacionin në fuqi, në shërbim të interesit publik.",
-    en: "The institution is an independent public body established by law, exercising its functions in accordance with the Constitution and the legislation in force, in service of the public interest.",
+    sq: "Gjykatë e shkallës së parë me juridiksion të posaçëm për çështjet e korrupsionit dhe të krimit të organizuar, pjesë e sistemit të drejtësisë së Republikës së Shqipërisë.",
+    en: "A first-instance court with special jurisdiction over corruption and organised crime cases, part of the justice system of the Republic of Albania.",
   } satisfies Localized,
 
   /** [INSTITUTION_ADDRESS] */

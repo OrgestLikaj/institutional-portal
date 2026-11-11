@@ -30,7 +30,7 @@ export default function NotFound() {
           </Link>
         </div>
         <div aria-hidden="true" className="hidden select-none lg:col-span-5 lg:block">
-          <p className="font-serif text-[12rem] font-semibold leading-none text-navy-100">404</p>
+          <p className="font-display text-[12rem] font-semibold leading-none text-brand-100">404</p>
           <div className="mt-2 h-1 w-32 bg-gold-500" />
         </div>
       </div>

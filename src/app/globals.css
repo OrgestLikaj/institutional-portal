@@ -2,30 +2,33 @@
 
 /*
  * Design tokens — the single place to adjust the institutional palette.
- * Tailwind exposes each token as a utility (bg-navy-900, text-gold-700, …).
+ * Tailwind exposes each token as a utility (bg-brand-900, text-gold-700, …).
  */
 @theme {
-  --color-navy-950: #0b1a2b;
-  --color-navy-900: #10243a; /* Deep Navy */
-  --color-navy-800: #183b56; /* Dark Blue */
-  --color-navy-600: #245b7a; /* Institutional Blue */
-  --color-navy-100: #e6ecf1;
-  --color-navy-50: #f1f4f7;
+  /* Brand palette — from the court's visual identity guideline (KOLORET) */
+  --color-brand-950: #2a1213;
+  --color-brand-900: #4a1a1b;
+  --color-brand-800: #652224;
+  --color-brand-600: #873132; /* Primary burgundy · HEX 873132 · Pantone 7624C */
+  --color-brand-100: #f2e4e4;
+  --color-brand-50: #faf4f4;
 
-  --color-gold-500: #b79a60; /* Gold accent — decorative use */
-  --color-gold-300: #d8c49b;
-  --color-gold-700: #7a6234; /* Gold for text on light backgrounds (AA) */
+  --color-gold-500: #c69d52; /* Gold · HEX C69D52 · Pantone 7407C — decorative use */
+  --color-gold-300: #e2c88f;
+  --color-gold-700: #85632a; /* Gold for text on light backgrounds (AA) */
 
-  --color-paper: #f5f6f7; /* Light background */
-  --color-ink: #252b32; /* Main text */
-  --color-ink-muted: #5f6974; /* Secondary text (darkened from #68727D for AA on paper) */
-  --color-line: #dde2e6; /* Border */
+  --color-charcoal: #414042; /* Grey · HEX 414042 · Pantone 447C */
+  --color-paper: #f7f5f2; /* Light background */
+  --color-ink: #2b2a2c; /* Main text (darker step of the brand grey) */
+  --color-ink-muted: #5c5b5e; /* Secondary text */
+  --color-line: #e4e0dd; /* Border */
 
   --color-success: #2f6b4f;
   --color-danger: #a33a32;
 
-  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  /* Typography — guideline: primary Open Sans (secondary Helvetica for print) */
+  --font-sans: var(--font-open-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-open-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --radius-xs: 2px;
 }
@@ -41,16 +44,16 @@
     line-height: 1.65;
   }
   h1, h2, h3, h4 {
-    @apply font-serif text-navy-900;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
+    @apply font-display text-brand-900;
+    letter-spacing: -0.015em;
+    line-height: 1.22;
   }
   :focus-visible {
     outline: 3px solid var(--color-gold-500);
     outline-offset: 2px;
   }
   ::selection {
-    background: var(--color-navy-100);
+    background: var(--color-brand-100);
   }
 }
 
@@ -71,7 +74,7 @@
   }
 
   .link-arrow {
-    @apply inline-flex items-center gap-2 font-semibold text-navy-600 underline-offset-4 hover:text-navy-900 hover:underline;
+    @apply inline-flex items-center gap-2 font-semibold text-brand-600 underline-offset-4 hover:text-brand-900 hover:underline;
   }
 
   .btn-primary,
@@ -81,30 +84,30 @@
     @apply inline-flex items-center justify-center gap-2 rounded-xs px-5 py-3 text-[0.95rem] font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60;
   }
   .btn-primary {
-    @apply bg-navy-900 text-white hover:bg-navy-800;
+    @apply bg-brand-900 text-white hover:bg-brand-800;
   }
   .btn-gold {
-    @apply bg-gold-500 text-navy-950 hover:bg-gold-300;
+    @apply bg-gold-500 text-brand-950 hover:bg-gold-300;
   }
   .btn-outline {
-    @apply border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white;
+    @apply border border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white;
   }
   .btn-outline-light {
-    @apply border border-white/60 text-white hover:bg-white hover:text-navy-900;
+    @apply border border-white/60 text-white hover:bg-white hover:text-brand-900;
   }
 
   .field-label {
-    @apply mb-1.5 block text-sm font-semibold text-navy-900;
+    @apply mb-1.5 block text-sm font-semibold text-brand-900;
   }
   .field {
-    @apply w-full rounded-xs border border-line bg-white px-3.5 py-2.5 text-[0.98rem] text-ink placeholder:text-ink-muted/70 transition-colors focus:border-navy-600 focus:outline-none focus:ring-2 focus:ring-navy-600/20;
+    @apply w-full rounded-xs border border-line bg-white px-3.5 py-2.5 text-[0.98rem] text-ink placeholder:text-ink-muted/70 transition-colors focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/20;
   }
   .field[aria-invalid="true"] {
     @apply border-danger ring-2 ring-danger/15;
   }
 
   .tag {
-    @apply inline-flex items-center text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-navy-600;
+    @apply inline-flex items-center text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-brand-600;
   }
 
   /* Rich text coming from the CMS */
@@ -121,19 +124,19 @@
     @apply mt-8 text-[1.25rem];
   }
   .prose-inst a {
-    @apply font-semibold text-navy-600 underline underline-offset-4 hover:text-navy-900;
+    @apply font-semibold text-brand-600 underline underline-offset-4 hover:text-brand-900;
   }
   .prose-inst ul {
     @apply list-disc space-y-2 pl-6 marker:text-gold-500;
   }
   .prose-inst ol {
-    @apply list-decimal space-y-2 pl-6 marker:text-navy-600;
+    @apply list-decimal space-y-2 pl-6 marker:text-brand-600;
   }
   .prose-inst blockquote {
-    @apply border-l-2 border-gold-500 pl-6 font-serif text-[1.25rem] italic text-navy-800;
+    @apply border-l-2 border-gold-500 pl-6 font-display text-[1.25rem] italic text-brand-800;
   }
   .prose-inst strong {
-    @apply font-semibold text-navy-900;
+    @apply font-semibold text-brand-900;
   }
 }
 

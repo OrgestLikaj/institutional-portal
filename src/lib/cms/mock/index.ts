@@ -136,7 +136,9 @@ export const mockProvider: CmsProvider = {
       shortName: institution.shortName[locale],
       tagline: institution.tagline[locale],
       description: institution.description[locale],
-      logo: institution.logo,
+      logo: institution.logo ? asset(institution.logo) : null,
+      logoLight: institution.logoLight ? asset(institution.logoLight) : null,
+      logoLines: institution.logoLines,
       address: {
         street: institution.address.street[locale],
         city: institution.address.city[locale],

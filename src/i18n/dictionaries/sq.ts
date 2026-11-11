@@ -9,6 +9,10 @@ const sq = {
     defaultDescription:
       "Faqja zyrtare e institucionit: informacion institucional, lajme, njoftime, kuadri ligjor, transparenca dhe shërbime për publikun.",
   },
+  demo: {
+    banner: "Prototip demonstrues — kjo nuk është faqja zyrtare e gjykatës. Përmbajtja, emrat dhe të dhënat janë ilustruese.",
+    label: "Njoftim për prototipin",
+  },
   a11y: {
     skipToContent: "Kalo te përmbajtja",
     mainNav: "Navigimi kryesor",
@@ -106,14 +110,14 @@ const sq = {
     print: "Printo",
   },
   home: {
-    heroEyebrow: "Institucion i pavarur publik",
+    heroEyebrow: "Gjykatë e posaçme e shkallës së parë",
     heroTitle: "Në shërbim të ligjit, të interesit publik dhe të qytetarëve",
     heroText:
-      "{name} ushtron mandatin e tij kushtetues me pavarësi, profesionalizëm dhe llogaridhënie, duke garantuar akses të plotë në informacionin institucional.",
+      "Gjykata ushtron funksionin e saj me pavarësi, paanshmëri dhe profesionalizëm, duke garantuar akses të plotë në informacionin gjyqësor dhe institucional.",
     heroPrimary: "Mëso më shumë",
     heroSecondary: "Informacion institucional",
-    introEyebrow: "Rreth institucionit",
-    introTitle: "Një institucion i ndërtuar mbi pavarësinë dhe besimin publik",
+    introEyebrow: "Rreth gjykatës",
+    introTitle: "Drejtësi e pavarur, në shërbim të besimit publik",
     introLink: "Profili institucional",
     mission: "Misioni",
     vision: "Vizioni",

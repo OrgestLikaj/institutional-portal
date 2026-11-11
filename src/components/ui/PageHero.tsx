@@ -17,7 +17,7 @@ export function PageHero({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-navy-900 text-white">
+    <section className="relative overflow-hidden bg-brand-900 text-white">
       {/* quiet architectural pattern */}
       <svg aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 h-full w-[46rem] max-w-[70%] opacity-[0.09]" viewBox="0 0 600 300" preserveAspectRatio="xMaxYMid slice">
         <g fill="none" stroke="#ffffff" strokeWidth="1.2">

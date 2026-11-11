@@ -7,6 +7,10 @@ const en: Dictionary = {
     defaultDescription:
       "Official website of the institution: institutional information, news, announcements, legal framework, transparency and public services.",
   },
+  demo: {
+    banner: "Demonstration prototype — this is not the court's official website. Content, names and figures are illustrative.",
+    label: "Prototype notice",
+  },
   a11y: {
     skipToContent: "Skip to content",
     mainNav: "Main navigation",
@@ -104,14 +108,14 @@ const en: Dictionary = {
     print: "Print",
   },
   home: {
-    heroEyebrow: "Independent public institution",
+    heroEyebrow: "Special court of first instance",
     heroTitle: "In service of the law, the public interest and the citizens",
     heroText:
-      "{name} exercises its constitutional mandate with independence, professionalism and accountability, guaranteeing full access to institutional information.",
+      "The Court exercises its function with independence, impartiality and professionalism, guaranteeing full access to judicial and institutional information.",
     heroPrimary: "Learn More",
     heroSecondary: "Institutional Information",
-    introEyebrow: "About the institution",
-    introTitle: "An institution built on independence and public trust",
+    introEyebrow: "About the Court",
+    introTitle: "Independent justice, in service of public trust",
     introLink: "Institutional profile",
     mission: "Mission",
     vision: "Vision",

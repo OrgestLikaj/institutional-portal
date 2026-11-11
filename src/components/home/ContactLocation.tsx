@@ -17,12 +17,12 @@ export function ContactDetails({ settings, t }: { settings: SiteSettings; t: Dic
     <dl className="divide-y divide-line">
       {rows.map(({ icon: Icon, label, value }) => (
         <div key={label} className="flex gap-4 py-4 first:pt-0">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-navy-50 text-navy-600">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-brand-50 text-brand-600">
             <Icon className="h-4 w-4" aria-hidden="true" />
           </span>
           <div>
             <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-ink-muted">{label}</dt>
-            <dd className="mt-1 text-[1rem] text-navy-900">{value}</dd>
+            <dd className="mt-1 text-[1rem] text-brand-900">{value}</dd>
           </div>
         </div>
       ))}
@@ -56,7 +56,7 @@ export function ContactLocation({ locale, t, settings }: { locale: Locale; t: Di
           </div>
         </Reveal>
         <Reveal delay={0.08} className="lg:col-span-7">
-          <MapPlaceholder label={settings.name} note={t.contact.mapPlaceholder} />
+          <MapPlaceholder label={settings.shortName} note={t.contact.mapPlaceholder} />
         </Reveal>
       </div>
     </section>

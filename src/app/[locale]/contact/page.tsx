@@ -34,20 +34,20 @@ export default async function ContactPage({ params, searchParams }: PageProps<"/
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
             <li className="border border-line bg-paper p-5">
               <p className="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-                <UserRound className="h-4 w-4 text-navy-600" aria-hidden="true" />
+                <UserRound className="h-4 w-4 text-brand-600" aria-hidden="true" />
                 {t.transparency.coordinator}
               </p>
-              <a href={"mailto:" + settings.rtiEmail} className="mt-2 inline-flex items-center gap-1.5 break-all text-sm font-semibold text-navy-600 hover:underline">
+              <a href={"mailto:" + settings.rtiEmail} className="mt-2 inline-flex items-center gap-1.5 break-all text-sm font-semibold text-brand-600 hover:underline">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                 {settings.rtiEmail}
               </a>
             </li>
             <li className="border border-line bg-paper p-5">
               <p className="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-                <Newspaper className="h-4 w-4 text-navy-600" aria-hidden="true" />
+                <Newspaper className="h-4 w-4 text-brand-600" aria-hidden="true" />
                 {t.nav.pressReleases}
               </p>
-              <a href={"mailto:" + settings.pressEmail} className="mt-2 inline-flex items-center gap-1.5 break-all text-sm font-semibold text-navy-600 hover:underline">
+              <a href={"mailto:" + settings.pressEmail} className="mt-2 inline-flex items-center gap-1.5 break-all text-sm font-semibold text-brand-600 hover:underline">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                 {settings.pressEmail}
               </a>
@@ -55,7 +55,7 @@ export default async function ContactPage({ params, searchParams }: PageProps<"/
           </ul>
 
           <div className="mt-8 h-72">
-            <MapPlaceholder label={settings.name} note={t.contact.mapPlaceholder} />
+            <MapPlaceholder label={settings.shortName} note={t.contact.mapPlaceholder} />
           </div>
           <a href={settings.address.mapUrl} target="_blank" rel="noopener noreferrer" className="link-arrow mt-4 text-sm">
             <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -65,7 +65,7 @@ export default async function ContactPage({ params, searchParams }: PageProps<"/
         </div>
 
         <section aria-labelledby="form-title" className="lg:col-span-7">
-          <div className="border-t-[3px] border-navy-900 bg-paper p-6 sm:p-10">
+          <div className="border-t-[3px] border-brand-900 bg-paper p-6 sm:p-10">
             <h2 id="form-title" className="mb-2 text-[1.8rem] font-semibold">
               {t.contact.formTitle}
             </h2>

@@ -74,7 +74,7 @@ export async function DocumentListing({
                     href={tabLink(c.slug)}
                     aria-current={active ? "page" : undefined}
                     className={`relative block px-4 py-3.5 text-[0.95rem] font-semibold transition-colors after:absolute after:inset-x-4 after:-bottom-px after:h-[3px] ${
-                      active ? "text-navy-900 after:bg-gold-500" : "text-ink-muted hover:text-navy-900 after:bg-transparent"
+                      active ? "text-brand-900 after:bg-gold-500" : "text-ink-muted hover:text-brand-900 after:bg-transparent"
                     }`}
                   >
                     {c.name}

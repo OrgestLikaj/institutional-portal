@@ -31,7 +31,7 @@ export function SearchDialog({ open, onClose, suggestions }: { open: boolean; on
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
       aria-label={t.search.title}
-      className="m-0 mx-auto mt-[10vh] w-[calc(100%-2rem)] max-w-2xl bg-transparent p-0 backdrop:bg-navy-950/70 backdrop:backdrop-blur-[2px]"
+      className="m-0 mx-auto mt-[10vh] w-[calc(100%-2rem)] max-w-2xl bg-transparent p-0 backdrop:bg-brand-950/70 backdrop:backdrop-blur-[2px]"
     >
       <div className="border-t-2 border-gold-500 bg-white shadow-2xl">
         <form
@@ -45,7 +45,7 @@ export function SearchDialog({ open, onClose, suggestions }: { open: boolean; on
           }}
           className="flex items-center gap-3 border-b border-line px-5"
         >
-          <Search className="h-5 w-5 shrink-0 text-navy-600" aria-hidden="true" />
+          <Search className="h-5 w-5 shrink-0 text-brand-600" aria-hidden="true" />
           <label htmlFor="global-search" className="sr-only">{t.search.label}</label>
           <input
             ref={inputRef}
@@ -56,7 +56,7 @@ export function SearchDialog({ open, onClose, suggestions }: { open: boolean; on
             placeholder={t.common.searchPlaceholder}
             className="h-16 w-full bg-transparent text-lg text-ink placeholder:text-ink-muted focus:outline-none"
           />
-          <button type="button" onClick={onClose} className="p-2 text-ink-muted hover:text-navy-900" aria-label={t.a11y.closeSearch}>
+          <button type="button" onClick={onClose} className="p-2 text-ink-muted hover:text-brand-900" aria-label={t.a11y.closeSearch}>
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </form>
@@ -65,7 +65,7 @@ export function SearchDialog({ open, onClose, suggestions }: { open: boolean; on
           <ul className="grid gap-x-6 gap-y-1 sm:grid-cols-2">
             {suggestions.map((s) => (
               <li key={s.href}>
-                <Link href={s.href} onClick={onClose} className="block py-1.5 text-[0.95rem] text-navy-800 hover:text-navy-600 hover:underline">
+                <Link href={s.href} onClick={onClose} className="block py-1.5 text-[0.95rem] text-brand-800 hover:text-brand-600 hover:underline">
                   {s.label}
                 </Link>
               </li>

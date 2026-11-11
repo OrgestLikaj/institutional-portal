@@ -32,11 +32,11 @@ export function Intro({ locale, t, about }: { locale: Locale; t: Dictionary; abo
           ].map(({ icon: Icon, title, text }, i) => (
             <Reveal key={title} delay={i * 0.08} className="h-full">
               <article className="relative h-full border border-line bg-paper p-8 pt-10">
-                <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-navy-900" />
+                <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-brand-900" />
                 <span aria-hidden="true" className="absolute left-0 top-0 h-[3px] w-16 bg-gold-500" />
-                <Icon className="h-7 w-7 text-navy-600" aria-hidden="true" />
+                <Icon className="h-7 w-7 text-brand-600" aria-hidden="true" />
                 <h3 className="mt-6 text-[1.45rem] font-semibold">{title}</h3>
-                <p className="mt-4 text-[1.05rem] leading-relaxed text-navy-800">{text}</p>
+                <p className="mt-4 text-[1.05rem] leading-relaxed text-ink">{text}</p>
               </article>
             </Reveal>
           ))}
@@ -44,7 +44,7 @@ export function Intro({ locale, t, about }: { locale: Locale; t: Dictionary; abo
             <ul className="grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-3">
               {about.values.map((v) => (
                 <li key={v.title} className="bg-white px-5 py-4">
-                  <p className="font-semibold text-navy-900">{v.title}</p>
+                  <p className="font-semibold text-brand-900">{v.title}</p>
                   <p className="mt-1 text-[0.85rem] leading-snug text-ink-muted">{v.text}</p>
                 </li>
               ))}

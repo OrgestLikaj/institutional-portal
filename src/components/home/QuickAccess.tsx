@@ -25,12 +25,12 @@ export function QuickAccess({ locale, t }: { locale: Locale; t: Dictionary }) {
               <Reveal delay={i * 0.04} className="h-full">
                 <Link
                   href={href(locale, path)}
-                  className="group relative flex h-full flex-col p-8 transition-colors duration-200 hover:bg-navy-900 focus-visible:bg-navy-900"
+                  className="group relative flex h-full flex-col p-8 transition-colors duration-200 hover:bg-brand-900 focus-visible:bg-brand-900"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center border border-line text-navy-600 transition-colors group-hover:border-gold-500 group-hover:text-gold-300">
+                  <span className="flex h-12 w-12 items-center justify-center border border-line text-brand-600 transition-colors group-hover:border-gold-500 group-hover:text-gold-300">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
-                  <span className="mt-7 font-serif text-[1.3rem] font-semibold text-navy-900 transition-colors group-hover:text-white">
+                  <span className="mt-7 font-display text-[1.3rem] font-semibold text-brand-900 transition-colors group-hover:text-white">
                     {t.home.quick[key].title}
                   </span>
                   <span className="mt-2 text-[0.95rem] text-ink-muted transition-colors group-hover:text-white/75">{t.home.quick[key].text}</span>

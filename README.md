@@ -1,9 +1,11 @@
 # Institutional Portal — Prototype
 
-A complete, navigable prototype of an official website for a high-level Albanian
-public institution. It is built for presentation to the institution's
-representatives: every name, figure and document is a neutral placeholder that
-can be replaced without touching the code.
+A complete, navigable prototype of an official website for the **Gjykata e Posaçme
+e Shkallës së Parë për Korrupsionin dhe Krimin e Organizuar** (GJKKO), built for
+presentation to the court's representatives. It applies the court's visual
+identity guideline (colours, Open Sans, official logo). All content (news,
+documents, people, contacts, figures) is illustrative placeholder material, and
+every page carries a banner stating that it is **not the court's official website**.
 
 - **Frontend:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · Lucide · Framer Motion
 - **Content:** bilingual mock data out of the box, or **headless WordPress** via REST (`CMS_SOURCE=wordpress`)
@@ -75,7 +77,9 @@ Open http://localhost:3000 — you are redirected to `/sq`.
 | Institution name, short name, tagline, description, address, phone, emails, hours, social links, partner institutions, logo | [`src/config/institution.ts`](src/config/institution.ts) (or WordPress *Site settings*) |
 | Navigation (add / rename / remove sections) | [`src/config/navigation.ts`](src/config/navigation.ts) (or WordPress menu `primary`) |
 | Homepage statistics | [`src/config/statistics.ts`](src/config/statistics.ts) (set `demo: false` only for official figures) |
-| Colours | `@theme` tokens in [`src/app/globals.css`](src/app/globals.css) |
+| Colours | `@theme` tokens in [`src/app/globals.css`](src/app/globals.css) (from the brand guideline) |
+| Logo | `public/brand/` (extracted from the guideline PDF with `scripts/extract-logo-from-guideline.py`) |
+| Demo banner | on by default; `NEXT_PUBLIC_DEMO_BANNER=false` only for the approved production site |
 | Fonts | [`src/app/[locale]/layout.tsx`](src/app/[locale]/layout.tsx) (`next/font`) |
 | Interface text (buttons, labels, messages) | [`src/i18n/dictionaries/sq.ts`](src/i18n/dictionaries/sq.ts) and [`en.ts`](src/i18n/dictionaries/en.ts) |
 | Demo content (news, documents, vacancies, people, pages) | [`src/data/mock/`](src/data/mock) — or WordPress |

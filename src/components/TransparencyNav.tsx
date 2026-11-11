@@ -30,7 +30,7 @@ export function TransparencyNav({
                   href={href(locale, `/transparency/${c.slug}`)}
                   aria-current={isActive ? "page" : undefined}
                   className={`flex items-center justify-between gap-3 border-l-[3px] px-4 py-3.5 text-[0.95rem] font-semibold transition-colors ${
-                    isActive ? "border-gold-500 bg-navy-900 text-white" : "border-transparent text-navy-900 hover:bg-paper"
+                    isActive ? "border-gold-500 bg-brand-900 text-white" : "border-transparent text-brand-900 hover:bg-paper"
                   }`}
                 >
                   {c.title}
@@ -43,12 +43,12 @@ export function TransparencyNav({
       </nav>
 
       <aside className="bg-paper p-6">
-        <p className="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-navy-800">
+        <p className="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-brand-800">
           <UserRound className="h-4 w-4" aria-hidden="true" />
           {t.transparency.coordinator}
         </p>
         <p className="mt-3 text-[0.95rem] text-ink-muted">{t.transparency.coordinatorText}</p>
-        <a href={"mailto:" + settings.rtiEmail} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-navy-600 hover:underline">
+        <a href={"mailto:" + settings.rtiEmail} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:underline">
           <Mail className="h-4 w-4" aria-hidden="true" />
           {settings.rtiEmail}
         </a>

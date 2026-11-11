@@ -27,10 +27,10 @@ export function FeaturedDocuments({ locale, t, docs }: { locale: Locale; t: Dict
               <li key={l.path}>
                 <Link
                   href={href(locale, l.path)}
-                  className="group flex items-center justify-between border-b border-line py-3.5 font-semibold text-navy-900 hover:text-navy-600"
+                  className="group flex items-center justify-between border-b border-line py-3.5 font-semibold text-brand-900 hover:text-brand-600"
                 >
                   {l.label}
-                  <ArrowRight className="h-4 w-4 text-navy-600 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  <ArrowRight className="h-4 w-4 text-brand-600 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
               </li>
             ))}

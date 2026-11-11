@@ -68,7 +68,7 @@ export function MegaMenu({ items }: { items: NavItem[] }) {
           const isOpen = open === i;
           const base =
             "relative flex h-14 items-center gap-1.5 px-3 xl:px-4 text-[0.95rem] font-semibold transition-colors after:absolute after:inset-x-3 xl:after:inset-x-4 after:bottom-0 after:h-[3px] after:transition-colors";
-          const tone = active || isOpen ? "text-navy-900 after:bg-gold-500" : "text-ink hover:text-navy-600 after:bg-transparent";
+          const tone = active || isOpen ? "text-brand-900 after:bg-gold-500" : "text-ink hover:text-brand-600 after:bg-transparent";
 
           if (!item.children?.length) {
             return (
@@ -122,12 +122,12 @@ export function MegaMenu({ items }: { items: NavItem[] }) {
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.16, ease: "easeOut" }}
                     onMouseEnter={cancelClose}
-                    className="absolute inset-x-0 top-full z-40 border-t border-line bg-white shadow-[0_18px_40px_-20px_rgba(16,36,58,0.35)]"
+                    className="absolute inset-x-0 top-full z-40 border-t border-line bg-white shadow-[0_18px_40px_-20px_rgba(42,18,19,0.32)]"
                   >
                     <div className="container-inst grid grid-cols-12 gap-10 py-10">
                       <div className="col-span-4 border-r border-line pr-10">
                         <p className="eyebrow mb-4">{item.label}</p>
-                        {item.intro && <p className="font-serif text-[1.35rem] leading-snug text-navy-900">{item.intro}</p>}
+                        {item.intro && <p className="font-display text-[1.35rem] leading-snug text-brand-900">{item.intro}</p>}
                         <Link href={item.href.split("#")[0]} className="link-arrow mt-6 text-sm">
                           {t.common.viewAll} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
@@ -140,7 +140,7 @@ export function MegaMenu({ items }: { items: NavItem[] }) {
                               <Link
                                 href={child.href}
                                 aria-current={childActive ? "page" : undefined}
-                                className="group flex items-center justify-between border-b border-line py-4 text-[1.02rem] font-semibold text-navy-900 transition-colors hover:border-navy-600 hover:text-navy-600"
+                                className="group flex items-center justify-between border-b border-line py-4 text-[1.02rem] font-semibold text-brand-900 transition-colors hover:border-brand-600 hover:text-brand-600"
                               >
                                 <span className="flex items-center gap-3">
                                   <span aria-hidden="true" className={`h-4 w-[3px] ${childActive ? "bg-gold-500" : "bg-transparent group-hover:bg-gold-500"}`} />

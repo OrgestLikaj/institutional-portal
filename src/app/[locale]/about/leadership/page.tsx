@@ -38,7 +38,7 @@ export default async function LeadershipPage({ params }: PageProps<"/[locale]/ab
           <Reveal>
             <article id={head.slug} className="grid scroll-mt-40 gap-10 border-b border-line pb-16 md:grid-cols-12">
               <div className="md:col-span-4">
-                <div className="relative aspect-[4/5] overflow-hidden bg-navy-50">
+                <div className="relative aspect-[4/5] overflow-hidden bg-brand-50">
                   <Image src={head.portrait.src} alt={head.portrait.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                 </div>
               </div>
@@ -46,7 +46,7 @@ export default async function LeadershipPage({ params }: PageProps<"/[locale]/ab
                 <p className="eyebrow mb-4">{head.role}</p>
                 <h2 className="text-[2.2rem] font-semibold">{head.name}</h2>
                 <p className="mt-2 text-ink-muted">{head.term}</p>
-                <h3 className="mt-10 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-navy-800">{t.leadership.biography}</h3>
+                <h3 className="mt-10 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-brand-800">{t.leadership.biography}</h3>
                 <div className="mt-4 space-y-4 text-[1.06rem] leading-relaxed">
                   {head.bio.map((p) => (
                     <p key={p.slice(0, 30)}>{p}</p>
@@ -61,7 +61,7 @@ export default async function LeadershipPage({ params }: PageProps<"/[locale]/ab
           {others.map((l, i) => (
             <Reveal key={l.id} delay={i * 0.06}>
               <article id={l.slug} className="h-full scroll-mt-40 border border-line bg-white">
-                <div className="relative aspect-[4/5] overflow-hidden bg-navy-50">
+                <div className="relative aspect-[4/5] overflow-hidden bg-brand-50">
                   <Image src={l.portrait.src} alt={l.portrait.alt} fill sizes="(min-width: 768px) 30vw, 100vw" className="object-cover" />
                 </div>
                 <div className="p-6">
@@ -69,7 +69,7 @@ export default async function LeadershipPage({ params }: PageProps<"/[locale]/ab
                   <h2 className="mt-2 text-[1.4rem] font-semibold">{l.name}</h2>
                   <p className="text-sm text-ink-muted">{l.term}</p>
                   <details className="group mt-5 border-t border-line pt-4">
-                    <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold text-navy-600 [&::-webkit-details-marker]:hidden">
+                    <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold text-brand-600 [&::-webkit-details-marker]:hidden">
                       {t.leadership.biography}
                       <span aria-hidden="true" className="text-lg leading-none transition-transform group-open:rotate-45">+</span>
                     </summary>

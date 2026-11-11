@@ -43,7 +43,7 @@ export default async function SearchPage({ params, searchParams }: PageProps<"/[
               {t.search.label}
             </label>
             <input id="search-q" name="q" type="search" placeholder={t.common.searchPlaceholder} className="h-14 w-full border-0 bg-white px-5 text-lg text-ink placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-gold-500" />
-            <button type="submit" className="flex h-14 shrink-0 items-center gap-2 bg-gold-500 px-6 font-semibold text-navy-950 hover:bg-gold-300">
+            <button type="submit" className="flex h-14 shrink-0 items-center gap-2 bg-gold-500 px-6 font-semibold text-brand-950 hover:bg-gold-300">
               <Search className="h-5 w-5" aria-hidden="true" />
               <span className="hidden sm:inline">{t.common.search}</span>
             </button>
@@ -82,7 +82,7 @@ export default async function SearchPage({ params, searchParams }: PageProps<"/[
             placeholder={t.common.searchPlaceholder}
             className="h-14 w-full border-0 bg-white px-5 text-lg text-ink placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-gold-500"
           />
-          <button type="submit" className="flex h-14 shrink-0 items-center gap-2 bg-gold-500 px-6 font-semibold text-navy-950 hover:bg-gold-300">
+          <button type="submit" className="flex h-14 shrink-0 items-center gap-2 bg-gold-500 px-6 font-semibold text-brand-950 hover:bg-gold-300">
             <Search className="h-5 w-5" aria-hidden="true" />
             <span className="hidden sm:inline">{t.common.search}</span>
           </button>
@@ -97,7 +97,7 @@ export default async function SearchPage({ params, searchParams }: PageProps<"/[
         ) : (
           <div className="grid gap-10 lg:grid-cols-12">
             <aside className="lg:col-span-3">
-              <h2 className="mb-1 font-serif text-[1.3rem] font-semibold">{interpolate(t.search.resultsFor, { q })}</h2>
+              <h2 className="mb-1 font-display text-[1.3rem] font-semibold">{interpolate(t.search.resultsFor, { q })}</h2>
               <p className="mb-6 text-sm text-ink-muted" role="status">
                 {results.length === 1 ? t.common.result : interpolate(t.common.results, { count: results.length })}
               </p>
@@ -114,7 +114,7 @@ export default async function SearchPage({ params, searchParams }: PageProps<"/[
                           href={link}
                           aria-current={active ? "page" : undefined}
                           className={`flex items-center justify-between border-l-[3px] px-4 py-3 text-[0.95rem] font-semibold ${
-                            active ? "border-gold-500 bg-navy-900 text-white" : "border-transparent text-navy-900 hover:bg-paper"
+                            active ? "border-gold-500 bg-brand-900 text-white" : "border-transparent text-brand-900 hover:bg-paper"
                           }`}
                         >
                           {k ? t.search.groups[k] : t.common.allCategories}
@@ -135,13 +135,13 @@ export default async function SearchPage({ params, searchParams }: PageProps<"/[
                     {r.meta && <span>{r.meta}</span>}
                     {r.date && <time dateTime={r.date}>{formatDate(r.date, locale)}</time>}
                   </p>
-                  <h3 className="mt-1.5 font-serif text-[1.2rem] font-semibold text-navy-900">
-                    <Link href={r.href} className="after:absolute after:inset-0 group-hover:text-navy-600 group-hover:underline">
+                  <h3 className="mt-1.5 font-display text-[1.2rem] font-semibold text-brand-900">
+                    <Link href={r.href} className="after:absolute after:inset-0 group-hover:text-brand-600 group-hover:underline">
                       {highlight(r.title, q)}
                     </Link>
                   </h3>
                   <p className="mt-1.5 text-ink-muted">{highlight(r.excerpt, q)}</p>
-                  <ArrowRight className="absolute right-0 top-8 hidden h-5 w-5 text-line transition-colors group-hover:text-navy-600 sm:block" aria-hidden="true" />
+                  <ArrowRight className="absolute right-0 top-8 hidden h-5 w-5 text-line transition-colors group-hover:text-brand-600 sm:block" aria-hidden="true" />
                 </li>
               ))}
             </ol>

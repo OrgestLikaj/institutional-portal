@@ -46,7 +46,7 @@ export function Pagination({
       <ul className="flex flex-wrap items-center gap-1.5">
         <li>
           {page > 1 ? (
-            <Link href={link(page - 1)} className={`${cell} border-line text-navy-900 hover:border-navy-900`} aria-label={t.a11y.previous} rel="prev">
+            <Link href={link(page - 1)} className={`${cell} border-line text-brand-900 hover:border-brand-900`} aria-label={t.a11y.previous} rel="prev">
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             </Link>
           ) : (
@@ -63,11 +63,11 @@ export function Pagination({
           ) : (
             <li key={p}>
               {p === page ? (
-                <span aria-current="page" aria-label={interpolate(t.a11y.currentPage, { n: p })} className={`${cell} border-navy-900 bg-navy-900 text-white`}>
+                <span aria-current="page" aria-label={interpolate(t.a11y.currentPage, { n: p })} className={`${cell} border-brand-900 bg-brand-900 text-white`}>
                   {p}
                 </span>
               ) : (
-                <Link href={link(p)} aria-label={interpolate(t.a11y.page, { n: p })} className={`${cell} border-line text-navy-900 hover:border-navy-900`}>
+                <Link href={link(p)} aria-label={interpolate(t.a11y.page, { n: p })} className={`${cell} border-line text-brand-900 hover:border-brand-900`}>
                   {p}
                 </Link>
               )}
@@ -76,7 +76,7 @@ export function Pagination({
         )}
         <li>
           {page < totalPages ? (
-            <Link href={link(page + 1)} className={`${cell} border-line text-navy-900 hover:border-navy-900`} aria-label={t.a11y.next} rel="next">
+            <Link href={link(page + 1)} className={`${cell} border-line text-brand-900 hover:border-brand-900`} aria-label={t.a11y.next} rel="next">
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           ) : (

@@ -44,8 +44,8 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
             <ol className="border-l border-line">
               {toc.map((item, i) => (
                 <li key={item.id}>
-                  <a href={`#${item.id}`} className="-ml-px flex gap-3 border-l-2 border-transparent py-2 pl-4 text-[0.95rem] text-ink hover:border-gold-500 hover:text-navy-600">
-                    <span className="font-serif text-gold-700">{String(i + 1).padStart(2, "0")}</span>
+                  <a href={`#${item.id}`} className="-ml-px flex gap-3 border-l-2 border-transparent py-2 pl-4 text-[0.95rem] text-ink hover:border-gold-500 hover:text-brand-600">
+                    <span className="font-display text-gold-700">{String(i + 1).padStart(2, "0")}</span>
                     {item.label}
                   </a>
                 </li>
@@ -70,10 +70,10 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               { icon: Compass, title: t.about.vision, text: about.vision },
             ].map(({ icon: Icon, title, text }) => (
               <Reveal key={title}>
-                <article className="h-full border-t-[3px] border-navy-900 bg-paper p-8">
+                <article className="h-full border-t-[3px] border-brand-900 bg-paper p-8">
                   <Icon className="h-7 w-7 text-gold-700" aria-hidden="true" />
                   <h2 className="mt-5 text-[1.6rem] font-semibold">{title}</h2>
-                  <p className="mt-4 font-serif text-[1.18rem] leading-relaxed text-navy-800">{text}</p>
+                  <p className="mt-4 font-display text-[1.18rem] leading-relaxed text-brand-800">{text}</p>
                 </article>
               </Reveal>
             ))}
@@ -84,7 +84,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
             <ul className="mt-8 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
               {about.values.map((v, i) => (
                 <li key={v.title} className="bg-white p-7">
-                  <span className="font-serif text-sm text-gold-700">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-display text-sm text-gold-700">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-2 text-[1.2rem] font-semibold">{v.title}</h3>
                   <p className="mt-2 text-ink-muted">{v.text}</p>
                 </li>
@@ -98,14 +98,14 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               <div className="prose-inst mt-6" dangerouslySetInnerHTML={{ __html: about.mandate.html }} />
             </div>
             <aside className="border border-line bg-paper p-7 lg:col-span-2">
-              <p className="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-navy-800">
+              <p className="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-brand-800">
                 <Scale className="h-4 w-4" aria-hidden="true" />
                 {t.nav.legal}
               </p>
               <ul className="mt-5 divide-y divide-line">
                 {about.mandate.legalBasis.map((b) => (
                   <li key={b.title} className="py-3.5">
-                    <p className="font-semibold text-navy-900">{b.title}</p>
+                    <p className="font-semibold text-brand-900">{b.title}</p>
                     <p className="text-sm text-ink-muted">{b.reference}</p>
                   </li>
                 ))}
@@ -119,9 +119,9 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               {about.history.map((h) => (
                 <li key={h.title} className="relative pb-10 last:pb-0">
                   <span aria-hidden="true" className="absolute -left-[41px] top-1 flex h-5 w-5 items-center justify-center border-2 border-gold-500 bg-white">
-                    <span className="h-1.5 w-1.5 bg-navy-900" />
+                    <span className="h-1.5 w-1.5 bg-brand-900" />
                   </span>
-                  <p className="font-serif text-[1.4rem] font-semibold text-gold-700">{h.year}</p>
+                  <p className="font-display text-[1.4rem] font-semibold text-gold-700">{h.year}</p>
                   <h3 className="mt-1 text-[1.2rem] font-semibold">{h.title}</h3>
                   <p className="mt-2 max-w-2xl text-ink-muted">{h.text}</p>
                 </li>
@@ -136,7 +136,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
                 const Icon = [Landmark, BookOpen, Scale, Target][i % 4];
                 return (
                   <article key={p.title} className="flex gap-5 border border-line p-6">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-navy-900 text-gold-300">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-brand-900 text-gold-300">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div>

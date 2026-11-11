@@ -4,7 +4,7 @@ import { cms } from "@/lib/cms";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { footerColumns } from "@/config/navigation";
-import { Emblem } from "./Emblem";
+import { Brand } from "./Brand";
 import { SocialIcon } from "./SocialIcon";
 
 export async function SiteFooter({ locale }: { locale: Locale }) {
@@ -14,19 +14,15 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
   const tel = settings.phone.replace(/\s/g, "");
 
   return (
-    <footer className="mt-auto bg-navy-900 text-white">
+    <footer className="mt-auto bg-brand-900 text-white">
       <div className="h-1 bg-gold-500" aria-hidden="true" />
 
       <div className="container-inst grid gap-12 py-16 lg:grid-cols-12">
         {/* Identity + contact */}
         <div className="lg:col-span-4">
-          <div className="flex items-center gap-4">
-            <Emblem tone="light" className="h-14 w-14 shrink-0" />
-            <div>
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold-300">{t.meta.country}</p>
-              <p className="font-serif text-xl font-semibold leading-tight">{settings.name}</p>
-            </div>
-          </div>
+          {/* White lockup on burgundy: an approved colour variation of the logo */}
+          <Brand homeHref={href(locale)} name={settings.name} lines={settings.logoLines} logo={settings.logoLight} tone="light" />
+          <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold-300">{t.meta.country}</p>
           <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/75">{settings.description}</p>
 
           <h2 className="sr-only">{t.footer.contact}</h2>
@@ -112,7 +108,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
       </div>
 
       {/* Legal bar */}
-      <div className="bg-navy-950">
+      <div className="bg-brand-950">
         <div className="container-inst flex flex-col gap-3 py-5 text-[0.82rem] text-white/65 md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {settings.name}. {t.footer.rights} <span className="ml-1 text-gold-300/90">{t.footer.prototype}</span>

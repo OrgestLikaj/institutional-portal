@@ -50,12 +50,12 @@ export function MobileNav({
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
       aria-label={t.a11y.mainNav}
-      className="m-0 ml-auto h-dvh max-h-none w-full max-w-md bg-transparent p-0 backdrop:bg-navy-950/60"
+      className="m-0 ml-auto h-dvh max-h-none w-full max-w-md bg-transparent p-0 backdrop:bg-brand-950/60"
     >
       <div className="flex h-full flex-col bg-white">
         <div className="flex items-center justify-between border-b border-line px-4 py-3 sm:px-6">
           {brand}
-          <button type="button" onClick={onClose} className="p-2 text-navy-900" aria-label={t.a11y.closeMenu}>
+          <button type="button" onClick={onClose} className="p-2 text-brand-900" aria-label={t.a11y.closeMenu}>
             <X className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
@@ -68,7 +68,7 @@ export function MobileNav({
           }}
           className="mx-4 mt-4 flex items-center gap-3 border border-line px-4 py-3 text-left text-ink-muted sm:mx-6"
         >
-          <Search className="h-5 w-5 text-navy-600" aria-hidden="true" />
+          <Search className="h-5 w-5 text-brand-600" aria-hidden="true" />
           {t.common.searchPlaceholder}
         </button>
 
@@ -83,7 +83,7 @@ export function MobileNav({
                       href={item.href}
                       onClick={onClose}
                       aria-current={active ? "page" : undefined}
-                      className={`block py-4 text-[1.05rem] font-semibold ${active ? "text-navy-600" : "text-navy-900"}`}
+                      className={`block py-4 text-[1.05rem] font-semibold ${active ? "text-brand-600" : "text-brand-900"}`}
                     >
                       {item.label}
                     </Link>
@@ -99,15 +99,15 @@ export function MobileNav({
                     aria-expanded={isOpen}
                     aria-controls={id}
                     onClick={() => setExpanded(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between py-4 text-left text-[1.05rem] font-semibold text-navy-900"
+                    className="flex w-full items-center justify-between py-4 text-left text-[1.05rem] font-semibold text-brand-900"
                   >
                     {item.label}
-                    <ChevronDown className={`h-5 w-5 text-navy-600 transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                    <ChevronDown className={`h-5 w-5 text-brand-600 transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
                   </button>
                   <ul id={id} hidden={!isOpen} className="mb-3 border-l-2 border-gold-500 pl-4">
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} onClick={onClose} className="block py-2.5 text-[0.98rem] text-ink hover:text-navy-600">
+                        <Link href={child.href} onClick={onClose} className="block py-2.5 text-[0.98rem] text-ink hover:text-brand-600">
                           {child.label}
                         </Link>
                       </li>
@@ -119,7 +119,7 @@ export function MobileNav({
           </ul>
         </nav>
 
-        <div className="flex items-center justify-between bg-navy-900 px-4 py-4 sm:px-6">
+        <div className="flex items-center justify-between bg-brand-900 px-4 py-4 sm:px-6">
           <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">{t.a11y.language}</span>
           <LanguageSwitcher tone="light" />
         </div>

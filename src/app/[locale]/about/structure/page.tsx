@@ -15,9 +15,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/about/st
 
 function ChartNode({ dept, variant = "default" }: { dept: Department; variant?: "head" | "staff" | "default" }) {
   const styles = {
-    head: "bg-navy-900 text-white border-navy-900",
-    staff: "bg-white text-navy-900 border-dashed border-navy-600",
-    default: "bg-white text-navy-900 border-line hover:border-navy-600",
+    head: "bg-brand-900 text-white border-brand-900",
+    staff: "bg-white text-brand-900 border-dashed border-brand-600",
+    default: "bg-white text-brand-900 border-line hover:border-brand-600",
   }[variant];
   return (
     <a href={`#dept-${dept.id}`} className={`relative block border px-4 py-3.5 text-center text-[0.92rem] font-semibold leading-snug transition-colors ${styles}`}>
@@ -73,15 +73,15 @@ export default async function StructurePage({ params }: PageProps<"/[locale]/abo
                         <div className="w-64">
                           <ChartNode dept={d} variant="staff" />
                         </div>
-                        <span aria-hidden="true" className="h-px w-16 bg-navy-600" />
+                        <span aria-hidden="true" className="h-px w-16 bg-brand-600" />
                       </div>
                     ))}
                   </div>
-                  <span aria-hidden="true" className="h-full w-[2px] bg-navy-600" />
+                  <span aria-hidden="true" className="h-full w-[2px] bg-brand-600" />
                   <div className="flex flex-col items-start gap-4 py-6">
                     {staffUnits.slice(Math.ceil(staffUnits.length / 2)).map((d) => (
                       <div key={d.id} className="flex w-full items-center">
-                        <span aria-hidden="true" className="h-px w-16 bg-navy-600" />
+                        <span aria-hidden="true" className="h-px w-16 bg-brand-600" />
                         <div className="w-64">
                           <ChartNode dept={d} variant="staff" />
                         </div>
@@ -95,17 +95,17 @@ export default async function StructurePage({ params }: PageProps<"/[locale]/abo
                     <div className="mx-auto w-72">
                       <ChartNode dept={secretariat} />
                     </div>
-                    <div aria-hidden="true" className="mx-auto h-8 w-[2px] bg-navy-600" />
+                    <div aria-hidden="true" className="mx-auto h-8 w-[2px] bg-brand-600" />
                   </>
                 )}
 
                 {/* Level 2: directorates */}
                 <div className="relative">
-                  <div aria-hidden="true" className="absolute top-0 h-[2px] bg-navy-600" style={{ left: `${50 / directorates.length}%`, right: `${50 / directorates.length}%` }} />
+                  <div aria-hidden="true" className="absolute top-0 h-[2px] bg-brand-600" style={{ left: `${50 / directorates.length}%`, right: `${50 / directorates.length}%` }} />
                   <ul className="grid gap-4" style={{ gridTemplateColumns: `repeat(${directorates.length}, minmax(0, 1fr))` }}>
                     {directorates.map((d) => (
                       <li key={d.id} className="flex flex-col items-center">
-                        <span aria-hidden="true" className="h-6 w-[2px] bg-navy-600" />
+                        <span aria-hidden="true" className="h-6 w-[2px] bg-brand-600" />
                         <div className="w-full">
                           <ChartNode dept={d} />
                         </div>
@@ -139,17 +139,17 @@ export default async function StructurePage({ params }: PageProps<"/[locale]/abo
             {departments
               .filter((d) => d.level > 0)
               .map((d) => (
-                <article key={d.id} id={`dept-${d.id}`} className="scroll-mt-40 border border-line bg-white p-7 target:border-navy-600 target:ring-2 target:ring-navy-600/20">
+                <article key={d.id} id={`dept-${d.id}`} className="scroll-mt-40 border border-line bg-white p-7 target:border-brand-600 target:ring-2 target:ring-brand-600/20">
                   {d.parent && byId[d.parent] && (
                     <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-                      {t.structure.reportsTo}: <span className="text-navy-600">{byId[d.parent].name}</span>
+                      {t.structure.reportsTo}: <span className="text-brand-600">{byId[d.parent].name}</span>
                     </p>
                   )}
                   <h3 className="mt-2 text-[1.3rem] font-semibold">{d.name}</h3>
                   <p className="mt-3 text-ink-muted">{d.description}</p>
                   {d.responsibilities.length > 0 && (
                     <>
-                      <h4 className="mt-6 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-navy-800">{t.structure.responsibilities}</h4>
+                      <h4 className="mt-6 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-brand-800">{t.structure.responsibilities}</h4>
                       <ul className="mt-3 space-y-1.5">
                         {d.responsibilities.map((r) => (
                           <li key={r} className="flex gap-3 text-[0.97rem]">
@@ -162,7 +162,7 @@ export default async function StructurePage({ params }: PageProps<"/[locale]/abo
                   )}
                   {d.units.length > 0 && (
                     <>
-                      <h4 className="mt-6 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-navy-800">{t.structure.units}</h4>
+                      <h4 className="mt-6 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-brand-800">{t.structure.units}</h4>
                       <ul className="mt-3 flex flex-wrap gap-2">
                         {d.units.map((u) => (
                           <li key={u} className="border border-line bg-paper px-3 py-1 text-sm">

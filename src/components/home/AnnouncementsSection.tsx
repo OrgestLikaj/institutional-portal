@@ -38,10 +38,10 @@ export function AnnouncementsSection({
           </div>
 
           <Reveal className="lg:col-span-4">
-            <aside aria-labelledby="press-title" className="h-full bg-navy-900 p-7 text-white sm:p-8">
+            <aside aria-labelledby="press-title" className="h-full bg-brand-900 p-7 text-white sm:p-8">
               <div className="flex items-center gap-3">
                 <Newspaper className="h-5 w-5 text-gold-300" aria-hidden="true" />
-                <h3 id="press-title" className="font-serif text-[1.35rem] font-semibold text-white">
+                <h3 id="press-title" className="font-display text-[1.35rem] font-semibold text-white">
                   {t.home.pressTitle}
                 </h3>
               </div>

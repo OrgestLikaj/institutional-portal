@@ -80,7 +80,7 @@ export default async function AnnouncementPage({ params }: PageProps<"/[locale]/
           <ShareButtons url={absoluteUrl(href(locale, `/announcements/${slug}`))} title={item.title} />
           {more.length > 0 && (
             <div>
-              <h2 className="mb-4 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-navy-800">{t.announcements.categories[item.category]}</h2>
+              <h2 className="mb-4 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-brand-800">{t.announcements.categories[item.category]}</h2>
               <ul className="space-y-3">
                 {more.map((a) => (
                   <li key={a.id}>

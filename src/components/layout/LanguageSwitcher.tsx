@@ -38,7 +38,7 @@ export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }
                   "px-1.5 py-1 text-[0.8rem] font-semibold tracking-wider transition-colors",
                   tone === "light"
                     ? active ? "text-gold-300" : "text-white/75 hover:text-white"
-                    : active ? "text-navy-900 underline decoration-gold-500 decoration-2 underline-offset-4" : "text-ink-muted hover:text-navy-900",
+                    : active ? "text-brand-900 underline decoration-gold-500 decoration-2 underline-offset-4" : "text-ink-muted hover:text-brand-900",
                 ].join(" ")}
               >
                 {localeMeta[l].short}

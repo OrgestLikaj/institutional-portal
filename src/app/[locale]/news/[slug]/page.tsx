@@ -72,15 +72,15 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/news/
               {article.category.name}
             </Link>
             <h1 className="mt-4 text-[2.1rem] font-semibold leading-[1.15] sm:text-[2.8rem]">{article.title}</h1>
-            {article.subtitle && <p className="mt-5 font-serif text-[1.3rem] leading-relaxed text-navy-800">{article.subtitle}</p>}
+            {article.subtitle && <p className="mt-5 font-display text-[1.3rem] leading-relaxed text-brand-800">{article.subtitle}</p>}
             <p className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.92rem] text-ink-muted">
               <span className="inline-flex items-center gap-2">
-                <CalendarDays className="h-4 w-4 text-navy-600" aria-hidden="true" />
+                <CalendarDays className="h-4 w-4 text-brand-600" aria-hidden="true" />
                 {t.common.published} <time dateTime={article.date}>{formatDate(article.date, locale)}</time>
               </span>
               {article.author && (
                 <span className="inline-flex items-center gap-2">
-                  <Building2 className="h-4 w-4 text-navy-600" aria-hidden="true" />
+                  <Building2 className="h-4 w-4 text-brand-600" aria-hidden="true" />
                   {article.author}
                 </span>
               )}
@@ -92,7 +92,7 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/news/
       <div className="container-inst grid gap-12 py-12 lg:grid-cols-12 lg:py-16">
         <div className="lg:col-span-8">
           <figure>
-            <div className="relative aspect-[3/2] overflow-hidden bg-navy-50">
+            <div className="relative aspect-[3/2] overflow-hidden bg-brand-50">
               <Image src={article.image.src} alt={article.image.alt} fill priority sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
             </div>
             <figcaption className="mt-2 text-sm text-ink-muted">{article.image.alt}</figcaption>
@@ -110,27 +110,27 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/news/
 
         <aside className="lg:col-span-4">
           <div className="space-y-8 lg:sticky lg:top-40">
-            <dl className="border-t-[3px] border-navy-900 bg-paper p-6 text-[0.95rem]">
+            <dl className="border-t-[3px] border-brand-900 bg-paper p-6 text-[0.95rem]">
               <div className="flex gap-3 border-b border-line pb-4">
-                <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-navy-600" aria-hidden="true" />
+                <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
                 <div>
                   <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">{t.common.date}</dt>
-                  <dd className="mt-0.5 text-navy-900">{formatDate(article.date, locale)}</dd>
+                  <dd className="mt-0.5 text-brand-900">{formatDate(article.date, locale)}</dd>
                 </div>
               </div>
               <div className="flex gap-3 border-b border-line py-4">
-                <Tag className="mt-0.5 h-4 w-4 shrink-0 text-navy-600" aria-hidden="true" />
+                <Tag className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
                 <div>
                   <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">{t.common.category}</dt>
-                  <dd className="mt-0.5 text-navy-900">{article.category.name}</dd>
+                  <dd className="mt-0.5 text-brand-900">{article.category.name}</dd>
                 </div>
               </div>
               {article.author && (
                 <div className="flex gap-3 pt-4">
-                  <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-navy-600" aria-hidden="true" />
+                  <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
                   <div>
                     <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">{t.common.author}</dt>
-                    <dd className="mt-0.5 text-navy-900">{article.author}</dd>
+                    <dd className="mt-0.5 text-brand-900">{article.author}</dd>
                   </div>
                 </div>
               )}

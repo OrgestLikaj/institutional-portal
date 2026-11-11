@@ -7,8 +7,8 @@ import { CountUp } from "./CountUp";
 
 export function Statistics({ locale, t, stats }: { locale: Locale; t: Dictionary; stats: { demo: boolean; items: StatItem[] } }) {
   return (
-    <section aria-labelledby="stats-title" className="relative overflow-hidden bg-navy-900 py-20 text-white lg:py-24">
-      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(36,91,122,0.55),transparent_55%)]" />
+    <section aria-labelledby="stats-title" className="relative overflow-hidden bg-brand-900 py-20 text-white lg:py-24">
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(135,49,50,0.55),transparent_55%)]" />
       <div className="container-inst relative">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -27,12 +27,12 @@ export function Statistics({ locale, t, stats }: { locale: Locale; t: Dictionary
 
         <dl className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {stats.items.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse bg-navy-900 p-7">
+            <div key={s.label} className="flex flex-col-reverse bg-brand-900 p-7">
               <dt className="mt-3 text-[0.98rem] leading-snug text-white/80">
                 {s.label}
                 <span className="mt-1 block text-[0.78rem] uppercase tracking-[0.12em] text-white/50">{s.period}</span>
               </dt>
-              <dd className="font-serif text-[2.8rem] font-semibold leading-none text-white">
+              <dd className="font-display text-[2.8rem] font-semibold leading-none text-white">
                 <CountUp value={s.value} locale={localeMeta[locale].intl} />
                 {s.suffix && <span className="text-gold-300">{s.suffix}</span>}
               </dd>

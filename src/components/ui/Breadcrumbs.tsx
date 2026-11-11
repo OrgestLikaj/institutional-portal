@@ -17,12 +17,12 @@ export function Breadcrumbs({ items, label, tone = "light" }: { items: Crumb[]; 
             <li key={`${item.label}-${i}`} className="flex items-center gap-2">
               {i > 0 && <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden="true" />}
               {item.href && !last ? (
-                <Link href={item.href} className={`inline-flex items-center gap-1.5 hover:underline ${light ? "hover:text-white" : "hover:text-navy-900"}`}>
+                <Link href={item.href} className={`inline-flex items-center gap-1.5 hover:underline ${light ? "hover:text-white" : "hover:text-brand-900"}`}>
                   {i === 0 && <Home className="h-3.5 w-3.5" aria-hidden="true" />}
                   {item.label}
                 </Link>
               ) : (
-                <span aria-current={last ? "page" : undefined} className={`line-clamp-1 ${last ? (light ? "text-white" : "text-navy-900") : ""}`}>
+                <span aria-current={last ? "page" : undefined} className={`line-clamp-1 ${last ? (light ? "text-white" : "text-brand-900") : ""}`}>
                   {item.label}
                 </span>
               )}

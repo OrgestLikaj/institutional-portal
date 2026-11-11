@@ -158,6 +158,8 @@ export type SiteSettings = {
   tagline: string;
   description: string;
   logo: string | null;
+  logoLight: string | null;
+  logoLines: string[];
   address: { street: string; city: string; mapUrl: string };
   email: string;
   rtiEmail: string;

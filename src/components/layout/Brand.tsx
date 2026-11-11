@@ -1,40 +1,49 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Emblem } from "./Emblem";
 
+/**
+ * Horizontal logo lockup as defined in the visual identity guideline:
+ * icon · vertical divider · three-line name in Open Sans Bold.
+ * The guideline's clear space (2x) is kept by the surrounding padding; the
+ * mark is never recoloured, stretched or placed over busy imagery.
+ */
 export function Brand({
   homeHref,
   name,
-  tagline,
-  country,
+  lines,
   logo,
   tone = "dark",
   compact = false,
+  iconOnlyOnMobile = false,
 }: {
   homeHref: string;
+  /** Full official name — used as the accessible label */
   name: string;
-  tagline: string;
-  country: string;
+  lines: string[];
   logo: string | null;
   tone?: "dark" | "light";
   compact?: boolean;
+  /** Use the guideline's icon-only variant below the sm breakpoint (narrow headers) */
+  iconOnlyOnMobile?: boolean;
 }) {
+  const textVisibility = iconOnlyOnMobile ? "hidden sm:flex" : "flex";
   const light = tone === "light";
+  const iconSize = compact ? "h-10 w-10" : "h-12 w-12 sm:h-[3.6rem] sm:w-[3.6rem]";
   return (
-    <Link href={homeHref} className="group flex items-center gap-3.5 sm:gap-4" aria-label={name}>
+    <Link href={homeHref} className="group flex items-center gap-3 sm:gap-3.5" aria-label={name}>
       {logo ? (
-        <Image src={logo} alt="" width={56} height={56} className={compact ? "h-10 w-10" : "h-12 w-12 sm:h-14 sm:w-14"} />
+        // eslint-disable-next-line @next/next/no-img-element -- small SVG mark, no optimisation needed
+        <img src={logo} alt="" className={`${iconSize} shrink-0 object-contain transition-[height,width] duration-200`} />
       ) : (
-        <Emblem tone={tone} className={`${compact ? "h-10 w-10" : "h-12 w-12 sm:h-14 sm:w-14"} shrink-0 transition-[height,width] duration-200`} />
+        <Emblem tone={tone} className={`${iconSize} shrink-0`} />
       )}
-      <span className="flex flex-col">
-        <span className={`text-[0.68rem] font-semibold uppercase tracking-[0.2em] ${light ? "text-gold-300" : "text-gold-700"} ${compact ? "hidden" : "hidden sm:block"}`}>
-          {country}
-        </span>
-        <span className={`font-serif font-semibold leading-tight ${light ? "text-white" : "text-navy-900"} ${compact ? "text-[1.1rem]" : "text-[1.15rem] sm:text-[1.45rem]"}`}>
-          {name}
-        </span>
-        <span className={`text-[0.82rem] leading-snug ${light ? "text-white/70" : "text-ink-muted"} ${compact ? "hidden" : "hidden md:block"}`}>{tagline}</span>
+      <span aria-hidden="true" className={`${textVisibility} w-[2px] self-stretch ${light ? "bg-white" : "bg-ink"} ${compact ? "my-1" : "my-0.5"}`} />
+      <span className={`${textVisibility} flex-col font-bold leading-[1.28] ${light ? "text-white" : "text-ink"} ${compact ? "text-[0.72rem]" : "text-[0.72rem] sm:text-[0.86rem]"}`}>
+        {lines.map((line) => (
+          <span key={line} className="whitespace-nowrap">
+            {line}
+          </span>
+        ))}
       </span>
     </Link>
   );

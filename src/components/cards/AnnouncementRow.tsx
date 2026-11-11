@@ -8,7 +8,7 @@ import { DateBlock } from "@/components/ui/DateBlock";
 export function AnnouncementRow({ item, locale, t, tone = "light" }: { item: Announcement; locale: Locale; t: Dictionary; tone?: "light" | "paper" }) {
   return (
     <article
-      className={`group relative flex gap-5 border border-line p-5 transition-colors hover:border-navy-600 sm:gap-6 sm:p-6 ${tone === "paper" ? "bg-paper" : "bg-white"}`}
+      className={`group relative flex gap-5 border border-line p-5 transition-colors hover:border-brand-600 sm:gap-6 sm:p-6 ${tone === "paper" ? "bg-paper" : "bg-white"}`}
     >
       <DateBlock iso={item.date} locale={locale} />
       <div className="min-w-0 flex-1">
@@ -27,8 +27,8 @@ export function AnnouncementRow({ item, locale, t, tone = "light" }: { item: Ann
             </span>
           )}
         </p>
-        <h3 className="mt-2 font-serif text-[1.12rem] font-semibold leading-snug text-navy-900">
-          <Link href={href(locale, `/announcements/${item.slug}`)} className="after:absolute after:inset-0 group-hover:text-navy-600">
+        <h3 className="mt-2 font-display text-[1.12rem] font-semibold leading-snug text-brand-900">
+          <Link href={href(locale, `/announcements/${item.slug}`)} className="after:absolute after:inset-0 group-hover:text-brand-600">
             {item.title}
           </Link>
         </h3>

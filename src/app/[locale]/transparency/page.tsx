@@ -55,16 +55,16 @@ export default async function TransparencyPage({ params }: PageProps<"/[locale]/
                   <Reveal delay={i * 0.04} className="h-full">
                     <Link href={href(locale, `/transparency/${c.slug}`)} className="group flex h-full flex-col p-7 transition-colors hover:bg-paper">
                       <div className="flex items-start justify-between">
-                        <span className="flex h-11 w-11 items-center justify-center bg-navy-900 text-gold-300">
+                        <span className="flex h-11 w-11 items-center justify-center bg-brand-900 text-gold-300">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </span>
                         <span className="text-sm text-ink-muted">
                           {c.count} {t.common.documents}
                         </span>
                       </div>
-                      <h2 className="mt-6 text-[1.25rem] font-semibold group-hover:text-navy-600">{c.title}</h2>
+                      <h2 className="mt-6 text-[1.25rem] font-semibold group-hover:text-brand-600">{c.title}</h2>
                       <p className="mt-2 flex-1 text-[0.96rem] text-ink-muted">{c.description}</p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy-600" aria-hidden="true">
+                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-600" aria-hidden="true">
                         {t.common.viewAll} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     </Link>

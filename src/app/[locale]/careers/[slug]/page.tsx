@@ -70,7 +70,7 @@ export default async function VacancyPage({ params }: PageProps<"/[locale]/caree
             <ul className="mt-5 space-y-3">
               {v.requirements.map((r) => (
                 <li key={r} className="flex gap-3 text-[1.04rem]">
-                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-navy-600" />
+                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-brand-600" />
                   {r}
                 </li>
               ))}
@@ -81,7 +81,7 @@ export default async function VacancyPage({ params }: PageProps<"/[locale]/caree
             <ul className="mt-5 space-y-3">
               {t.careers.generalRequirementsList.map((r) => (
                 <li key={r} className="flex gap-3 text-[1.04rem]">
-                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-navy-600" />
+                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-brand-600" />
                   {r}
                 </li>
               ))}
@@ -96,19 +96,19 @@ export default async function VacancyPage({ params }: PageProps<"/[locale]/caree
 
         <aside className="lg:col-span-4">
           <div className="lg:sticky lg:top-40">
-            <dl className="border-t-[3px] border-navy-900 bg-paper p-6">
+            <dl className="border-t-[3px] border-brand-900 bg-paper p-6">
               {facts.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex gap-3 border-b border-line py-3.5 first:pt-0 last:border-b-0 last:pb-0">
-                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-navy-600" aria-hidden="true" />
+                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
                   <div>
                     <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">{label}</dt>
-                    <dd className="mt-0.5 text-navy-900">{value}</dd>
+                    <dd className="mt-0.5 text-brand-900">{value}</dd>
                   </div>
                 </div>
               ))}
             </dl>
             {v.status === "open" && (
-              <p className="mt-6 border-l-2 border-gold-500 bg-white px-4 py-3 font-semibold text-navy-900">
+              <p className="mt-6 border-l-2 border-gold-500 bg-white px-4 py-3 font-semibold text-brand-900">
                 {interpolate(t.careers.applyBy, { date: formatDate(v.deadline, locale) })}
               </p>
             )}

@@ -62,7 +62,7 @@ export default async function AnnouncementsPage({ params, searchParams }: PagePr
         href={`${base}${sp.toString() ? `?${sp}` : ""}`}
         aria-current={active ? "page" : undefined}
         className={`border px-4 py-2 text-sm font-semibold transition-colors ${
-          active ? "border-navy-900 bg-navy-900 text-white" : "border-line bg-white text-navy-900 hover:border-navy-900"
+          active ? "border-brand-900 bg-brand-900 text-white" : "border-line bg-white text-brand-900 hover:border-brand-900"
         }`}
       >
         {value ? t.announcements.categories[value] : t.common.allCategories}

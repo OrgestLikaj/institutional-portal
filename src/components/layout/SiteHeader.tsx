@@ -13,7 +13,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
   return (
     <>
       {/* Utility bar */}
-      <div className="bg-navy-950 text-white">
+      <div className="bg-brand-950 text-white">
         <div className="container-inst flex h-10 items-center justify-between gap-4">
           <p className="truncate text-[0.78rem] tracking-wide text-white/75">
             <span className="mr-2 inline-block h-2 w-2 bg-gold-500 align-middle" aria-hidden="true" />
@@ -38,7 +38,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <HeaderShell items={items} brand={{ name: settings.name, tagline: settings.tagline, logo: settings.logo }} />
+      <HeaderShell items={items} brand={{ name: settings.name, lines: settings.logoLines, logo: settings.logo }} />
     </>
   );
 }

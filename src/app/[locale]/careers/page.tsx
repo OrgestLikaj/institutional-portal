@@ -66,12 +66,12 @@ export default async function CareersPage({ params }: PageProps<"/[locale]/caree
                 <li key={f.title}>
                   <a href={f.url} download className="group flex items-center justify-between gap-4 py-3.5">
                     <span className="flex items-center gap-3">
-                      <FileText className="h-5 w-5 shrink-0 text-navy-600" aria-hidden="true" />
-                      <span className="font-semibold text-navy-900 group-hover:text-navy-600">{f.title}</span>
+                      <FileText className="h-5 w-5 shrink-0 text-brand-600" aria-hidden="true" />
+                      <span className="font-semibold text-brand-900 group-hover:text-brand-600">{f.title}</span>
                     </span>
                     <span className="flex shrink-0 items-center gap-1.5 text-sm text-ink-muted">
                       {f.fileType}{f.size ? `, ${f.size}` : ""}
-                      <Download className="h-4 w-4 text-navy-600" aria-hidden="true" />
+                      <Download className="h-4 w-4 text-brand-600" aria-hidden="true" />
                     </span>
                   </a>
                 </li>
@@ -97,7 +97,7 @@ export default async function CareersPage({ params }: PageProps<"/[locale]/caree
               {closed.map((v) => (
                 <tr key={v.id} className="hover:bg-paper/60">
                   <td className="px-5 py-4">
-                    <Link href={href(locale, `/careers/${v.slug}`)} className="font-semibold text-navy-900 hover:text-navy-600 hover:underline">
+                    <Link href={href(locale, `/careers/${v.slug}`)} className="font-semibold text-brand-900 hover:text-brand-600 hover:underline">
                       {v.title}
                     </Link>
                   </td>
