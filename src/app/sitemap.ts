@@ -21,6 +21,8 @@ const STATIC_ROUTES = [
   "/accessibility",
 ];
 
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
   const url = (locale: string, path: string) => SITE_URL + "/" + locale + path;

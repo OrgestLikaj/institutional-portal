@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BASE_PATH } from "@/lib/env";
 import { usePathname } from "next/navigation";
 import { locales, localeMeta, type Locale } from "@/i18n/config";
 import { useI18n } from "@/i18n/I18nProvider";
@@ -30,7 +31,7 @@ export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }
                   // carry the query string and hash across languages
                   if (typeof window !== "undefined" && (window.location.search || window.location.hash)) {
                     e.preventDefault();
-                    window.location.assign(target(l) + window.location.search + window.location.hash);
+                    window.location.assign(BASE_PATH + target(l) + window.location.search + window.location.hash);
                   }
                 }}
                 className={[

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isStaticExport } from "@/lib/env";
 import { ExternalLink, Mail, Newspaper, UserRound } from "lucide-react";
 import { cms } from "@/lib/cms";
 import { buildMetadata } from "@/lib/seo";
@@ -16,8 +17,8 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/contact"
 export default async function ContactPage({ params, searchParams }: PageProps<"/[locale]/contact">) {
   const { locale, t } = await pageContext(params);
   const settings = await cms.getSiteSettings(locale);
-  const sp = await searchParams;
-  const defaultSubject = sp.subject === "rti" ? t.transparency.requestCta : "";
+  const sp = isStaticExport ? {} : await searchParams;
+  const defaultSubject = (sp as Record<string, unknown>).subject === "rti" ? t.transparency.requestCta : "";
 
   return (
     <>

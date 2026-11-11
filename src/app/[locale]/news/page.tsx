@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StaticNews } from "@/components/static/StaticListings";
+import { isStaticExport } from "@/lib/env";
 import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -23,6 +25,21 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/news">):
 
 export default async function NewsPage({ params, searchParams }: PageProps<"/[locale]/news">) {
   const { locale, t } = await pageContext(params);
+
+  if (isStaticExport) {
+    const [categories, all] = await Promise.all([cms.getNewsCategories(locale), cms.getNews(locale, { perPage: 1000 })]);
+    return (
+      <>
+        <PageHero title={t.news.title} lead={t.news.lead} eyebrow={t.nav.newsMedia} breadcrumbs={crumbs(locale, t, { label: t.nav.newsMedia })} breadcrumbLabel={t.a11y.breadcrumb} />
+        <div className="container-inst py-14 lg:py-16">
+          <Suspense fallback={<ListSkeleton variant="cards" />}>
+            <StaticNews items={all.items} categories={categories} basePath={href(locale, "/news")} />
+          </Suspense>
+        </div>
+      </>
+    );
+  }
+
   const query = parseListQuery(await searchParams);
   const filtered = Boolean(query.q || query.category || query.from || query.to);
   const showFeatured = !filtered && (query.page ?? 1) === 1;

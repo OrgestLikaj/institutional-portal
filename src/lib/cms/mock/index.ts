@@ -1,4 +1,5 @@
 import { href, type Locale } from "@/i18n/config";
+import { asset } from "@/lib/env";
 import { getDictionary } from "@/i18n/dictionaries";
 import { institution } from "@/config/institution";
 import { navigation } from "@/config/navigation";
@@ -50,7 +51,7 @@ function toNews(locale: Locale, n: (typeof newsItems)[number]): NewsArticle {
     date: n.date,
     category: { slug: cat.slug, name: cat.name[locale] },
     image: {
-      src: `/images/news-${imgIndex}.svg`,
+      src: asset(`/images/news-${imgIndex}.svg`),
       alt: locale === "sq" ? "Ilustrim arkitektonik neutral" : "Neutral architectural illustration",
       width: 1200,
       height: 800,
@@ -164,7 +165,7 @@ export const mockProvider: CmsProvider = {
   async getHomepage(locale) {
     return {
       heroImage: {
-        src: "/images/hero-facade.svg",
+        src: asset("/images/hero-facade.svg"),
         alt: locale === "sq" ? "Ilustrim i fasadës së një ndërtese institucionale" : "Illustration of an institutional building facade",
         width: 1600,
         height: 1000,
@@ -291,7 +292,7 @@ export const mockProvider: CmsProvider = {
         bio: l.bio[locale],
         order: l.order,
         portrait: {
-          src: "/images/portrait-placeholder.svg",
+          src: asset("/images/portrait-placeholder.svg"),
           alt: locale === "sq" ? `Fotografi vendmbajtëse — ${l.role.sq}` : `Placeholder photograph — ${l.role.en}`,
           width: 600,
           height: 750,

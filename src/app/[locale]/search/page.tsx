@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { ListSkeleton } from "@/components/ui/ListSkeleton";
+import { StaticSearch } from "@/components/static/StaticListings";
+import { Suspense } from "react";
+import { isStaticExport } from "@/lib/env";
 import Form from "next/form";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
@@ -27,6 +31,33 @@ function highlight(text: string, q: string) {
 
 export default async function SearchPage({ params, searchParams }: PageProps<"/[locale]/search">) {
   const { locale, t } = await pageContext(params);
+  const base0 = href(locale, "/search");
+
+  if (isStaticExport) {
+    const index = await cms.search(locale, "");
+    return (
+      <>
+        <PageHero title={t.search.title} lead={t.search.lead} breadcrumbs={crumbs(locale, t, { label: t.search.title })} breadcrumbLabel={t.a11y.breadcrumb}>
+          <Form action={base0} role="search" className="mt-8 flex max-w-2xl">
+            <label htmlFor="search-q" className="sr-only">
+              {t.search.label}
+            </label>
+            <input id="search-q" name="q" type="search" placeholder={t.common.searchPlaceholder} className="h-14 w-full border-0 bg-white px-5 text-lg text-ink placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-gold-500" />
+            <button type="submit" className="flex h-14 shrink-0 items-center gap-2 bg-gold-500 px-6 font-semibold text-navy-950 hover:bg-gold-300">
+              <Search className="h-5 w-5" aria-hidden="true" />
+              <span className="hidden sm:inline">{t.common.search}</span>
+            </button>
+          </Form>
+        </PageHero>
+        <div className="container-inst py-14 lg:py-16">
+          <Suspense fallback={<ListSkeleton />}>
+            <StaticSearch index={index} basePath={base0} />
+          </Suspense>
+        </div>
+      </>
+    );
+  }
+
   const sp = await searchParams;
   const raw = Array.isArray(sp.q) ? sp.q[0] : sp.q;
   const q = (raw ?? "").trim().slice(0, 120);

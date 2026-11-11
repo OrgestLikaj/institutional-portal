@@ -9,6 +9,8 @@ can be replaced without touching the code.
 - **Content:** bilingual mock data out of the box, or **headless WordPress** via REST (`CMS_SOURCE=wordpress`)
 - **Languages:** Albanian (primary, `/sq`) and English (`/en`)
 
+> **Live preview:** https://orgestlikaj.github.io/institutional-portal/ (static build, redeployed on every push to `main`)
+>
 > Documentation: [Architecture & visual direction](docs/ARCHITECTURE.md) · [WordPress content model](docs/WORDPRESS.md)
 
 ---
@@ -37,6 +39,7 @@ Open http://localhost:3000 — you are redirected to `/sq`.
 | `npm run build` | Production build (static pages are pre-rendered) |
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint |
+| `npm run build:pages` | Static export for GitHub Pages → `./out` (see *Static preview* below) |
 | `python scripts/generate-placeholder-assets.py` | Regenerate the placeholder SVG imagery and sample PDF |
 
 ## What is included
@@ -112,6 +115,19 @@ Pages never import data directly; they call `cms.*` from `@/lib/cms`. Setting
 2. Create the taxonomy terms and pages listed in [docs/WORDPRESS.md](docs/WORDPRESS.md).
 3. Set in `.env.local`: `CMS_SOURCE=wordpress`, `WORDPRESS_API_URL=https://cms.example.al/wp-json`, `REVALIDATE_SECRET=…`.
 4. Add `INST_FRONTEND_URL` and `INST_REVALIDATE_SECRET` to `wp-config.php` for instant updates.
+
+## Static preview (GitHub Pages)
+
+`.github/workflows/pages.yml` runs `npm run build:pages` on every push to `main` and publishes `./out`.
+A static host has no server, so in that build (`NEXT_PUBLIC_STATIC_EXPORT=true`):
+
+- the locale proxy, API routes and catch-all route are set aside during the build (`scripts/build-pages.mjs` restores them);
+- `/` is a small redirect page to `/sq/`;
+- news, announcement and document filters, pagination and search run in the browser on the full demo dataset;
+- the contact form simulates delivery (subject `test-error` still shows the failure state).
+
+The regular `npm run build` is unchanged and keeps server-side filtering, the contact API and WordPress support.
+Stop `npm run dev` before running `build:pages` locally (Windows locks the folders it moves).
 
 ## Accessibility, SEO, security
 

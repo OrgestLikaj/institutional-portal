@@ -21,12 +21,24 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
 ];
 
+/**
+ * Static export (GitHub Pages preview): NEXT_PUBLIC_STATIC_EXPORT=true.
+ * The Pages workflow also removes src/proxy.ts, src/app/api and the catch-all
+ * route before building, since a static host cannot run them.
+ */
+const isStaticExport = process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || undefined;
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  images: { remotePatterns, formats: ["image/avif", "image/webp"] },
-  async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
-  },
+  ...(isStaticExport
+    ? { output: "export" as const, basePath, trailingSlash: true, images: { unoptimized: true } }
+    : {
+        images: { remotePatterns, formats: ["image/avif", "image/webp"] },
+        async headers() {
+          return [{ source: "/(.*)", headers: securityHeaders }];
+        },
+      }),
   turbopack: {
     rules: {
       "*.css": {

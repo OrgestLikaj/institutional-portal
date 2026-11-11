@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { isStaticExport } from "@/lib/env";
 import { useRef, useState } from "react";
 import { AlertTriangle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
@@ -47,6 +48,13 @@ export function ContactForm({ defaultSubject = "" }: { defaultSubject?: string }
     }
     setShowSummary(false);
     setStatus("sending");
+    if (isStaticExport) {
+      // Static preview has no server: simulate delivery (subject "test-error" shows the failure state)
+      await new Promise((r) => setTimeout(r, 700));
+      setStatus(values.subject.trim().toLowerCase() === "test-error" ? "error" : "success");
+      requestAnimationFrame(() => resultRef.current?.focus());
+      return;
+    }
     try {
       const res = await fetch("/api/contact", {
         method: "POST",

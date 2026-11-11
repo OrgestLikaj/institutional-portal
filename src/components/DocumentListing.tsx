@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { StaticDocuments } from "@/components/static/StaticListings";
+import { isStaticExport } from "@/lib/env";
 import { cms } from "@/lib/cms";
 import type { DocumentSection, ListQuery } from "@/lib/cms/types";
 import type { Locale } from "@/i18n/config";
@@ -34,6 +36,15 @@ export async function DocumentListing({
   /** When the category is part of the route (transparency/[category]) */
   fixedCategory?: string;
 }) {
+  if (isStaticExport) {
+    const [all, cats, yrs] = await Promise.all([
+      cms.getDocuments(locale, { section, perPage: 1000 }),
+      cms.getDocumentCategories(locale, section),
+      cms.getDocumentYears(locale, section),
+    ]);
+    return <StaticDocuments items={all.items} categories={cats} years={yrs} basePath={basePath} emptyText={emptyText} fixedCategory={fixedCategory} />;
+  }
+
   const effective = { ...query, category: fixedCategory ?? query.category };
   const [result, categories, years] = await Promise.all([
     cms.getDocuments(locale, { section, ...effective }),

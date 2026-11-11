@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Search, X, CornerDownLeft } from "lucide-react";
 import { href } from "@/i18n/config";
@@ -64,9 +65,9 @@ export function SearchDialog({ open, onClose, suggestions }: { open: boolean; on
           <ul className="grid gap-x-6 gap-y-1 sm:grid-cols-2">
             {suggestions.map((s) => (
               <li key={s.href}>
-                <a href={s.href} onClick={onClose} className="block py-1.5 text-[0.95rem] text-navy-800 hover:text-navy-600 hover:underline">
+                <Link href={s.href} onClick={onClose} className="block py-1.5 text-[0.95rem] text-navy-800 hover:text-navy-600 hover:underline">
                   {s.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

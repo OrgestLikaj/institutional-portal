@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StaticAnnouncements } from "@/components/static/StaticListings";
+import { isStaticExport } from "@/lib/env";
 import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -27,8 +29,29 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/announce
 
 export default async function AnnouncementsPage({ params, searchParams }: PageProps<"/[locale]/announcements">) {
   const { locale, t } = await pageContext(params);
-  const query = parseListQuery(await searchParams);
   const base = href(locale, "/announcements");
+
+  if (isStaticExport) {
+    const all = await cms.getAnnouncements(locale, { perPage: 1000 });
+    return (
+      <>
+        <PageHero
+          title={t.announcements.title}
+          lead={t.announcements.lead}
+          eyebrow={t.nav.newsMedia}
+          breadcrumbs={crumbs(locale, t, { label: t.nav.newsMedia, href: href(locale, "/news") }, { label: t.announcements.title })}
+          breadcrumbLabel={t.a11y.breadcrumb}
+        />
+        <div className="container-inst py-14 lg:py-16">
+          <Suspense fallback={<ListSkeleton />}>
+            <StaticAnnouncements items={all.items} basePath={base} />
+          </Suspense>
+        </div>
+      </>
+    );
+  }
+
+  const query = parseListQuery(await searchParams);
 
   const chip = (value?: AnnouncementCategory) => {
     const active = query.category === value || (!value && !query.category);

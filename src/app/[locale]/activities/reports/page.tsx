@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isStaticExport } from "@/lib/env";
 import { Suspense } from "react";
 import { href } from "@/i18n/config";
 import { parseListQuery } from "@/lib/cms/query";
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/activiti
 
 export default async function ReportsPage({ params, searchParams }: PageProps<"/[locale]/activities/reports">) {
   const { locale, t } = await pageContext(params);
-  const query = parseListQuery(await searchParams);
+  const query = isStaticExport ? {} : parseListQuery(await searchParams);
 
   return (
     <>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isStaticExport } from "@/lib/env";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { cms } from "@/lib/cms";
@@ -30,7 +31,7 @@ export default async function TransparencyCategoryPage({ params, searchParams }:
   const [categories, settings] = await Promise.all([cms.getTransparencyCategories(locale), cms.getSiteSettings(locale)]);
   const cat = categories.find((c) => c.slug === category);
   if (!cat) notFound();
-  const query = parseListQuery(await searchParams);
+  const query = isStaticExport ? {} : parseListQuery(await searchParams);
 
   return (
     <>

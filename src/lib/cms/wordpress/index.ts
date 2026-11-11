@@ -1,4 +1,5 @@
 import "server-only";
+import { asset } from "@/lib/env";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { mockProvider } from "../mock";
@@ -84,7 +85,7 @@ function attachmentsFrom(acf: Record<string, unknown> | undefined, key = "attach
 
 function featured(post: WpPost, fallbackAlt: string): Media {
   const m = post._embedded?.["wp:featuredmedia"]?.[0];
-  if (!m?.source_url) return { src: "/images/news-1.svg", alt: fallbackAlt, width: 1200, height: 800 };
+  if (!m?.source_url) return { src: asset("/images/news-1.svg"), alt: fallbackAlt, width: 1200, height: 800 };
   return {
     src: m.source_url,
     alt: m.alt_text || fallbackAlt,

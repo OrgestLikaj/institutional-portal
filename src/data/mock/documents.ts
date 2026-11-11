@@ -1,9 +1,10 @@
 import type { Localized } from "@/i18n/config";
+import { asset } from "@/lib/env";
 import type { DocumentSection } from "@/lib/cms/types";
 
 /** DEMO DOCUMENTS — titles are generic; every file links to one sample PDF. */
 
-export const SAMPLE_PDF = "/documents/dokument-demonstrues.pdf";
+export const SAMPLE_PDF = asset("/documents/dokument-demonstrues.pdf");
 
 export const documentCategories: Record<DocumentSection, { slug: string; name: Localized; description?: Localized }[]> = {
   legal: [
