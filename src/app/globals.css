@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens — the single place to adjust the institutional palette.
+ * Tailwind exposes each token as a utility (bg-navy-900, text-gold-700, …).
+ */
+@theme {
+  --color-navy-950: #0b1a2b;
+  --color-navy-900: #10243a; /* Deep Navy */
+  --color-navy-800: #183b56; /* Dark Blue */
+  --color-navy-600: #245b7a; /* Institutional Blue */
+  --color-navy-100: #e6ecf1;
+  --color-navy-50: #f1f4f7;
+
+  --color-gold-500: #b79a60; /* Gold accent — decorative use */
+  --color-gold-300: #d8c49b;
+  --color-gold-700: #7a6234; /* Gold for text on light backgrounds (AA) */
+
+  --color-paper: #f5f6f7; /* Light background */
+  --color-ink: #252b32; /* Main text */
+  --color-ink-muted: #5f6974; /* Secondary text (darkened from #68727D for AA on paper) */
+  --color-line: #dde2e6; /* Border */
+
+  --color-success: #2f6b4f;
+  --color-danger: #a33a32;
+
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+
+  --radius-xs: 2px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 9rem;
+  }
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif text-navy-900;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold-500);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-navy-100);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-inst {
+    @apply mx-auto w-full max-w-[84rem] px-4 sm:px-6 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-gold-700;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-gold-500;
+  }
+  .eyebrow-light {
+    @apply text-gold-300;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-2 font-semibold text-navy-600 underline-offset-4 hover:text-navy-900 hover:underline;
+  }
+
+  .btn-primary,
+  .btn-gold,
+  .btn-outline,
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-xs px-5 py-3 text-[0.95rem] font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-navy-900 text-white hover:bg-navy-800;
+  }
+  .btn-gold {
+    @apply bg-gold-500 text-navy-950 hover:bg-gold-300;
+  }
+  .btn-outline {
+    @apply border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white;
+  }
+  .btn-outline-light {
+    @apply border border-white/60 text-white hover:bg-white hover:text-navy-900;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-navy-900;
+  }
+  .field {
+    @apply w-full rounded-xs border border-line bg-white px-3.5 py-2.5 text-[0.98rem] text-ink placeholder:text-ink-muted/70 transition-colors focus:border-navy-600 focus:outline-none focus:ring-2 focus:ring-navy-600/20;
+  }
+  .field[aria-invalid="true"] {
+    @apply border-danger ring-2 ring-danger/15;
+  }
+
+  .tag {
+    @apply inline-flex items-center text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-navy-600;
+  }
+
+  /* Rich text coming from the CMS */
+  .prose-inst {
+    @apply max-w-none text-[1.075rem] leading-[1.75] text-ink;
+  }
+  .prose-inst > * + * {
+    @apply mt-5;
+  }
+  .prose-inst h2 {
+    @apply mt-10 text-[1.6rem];
+  }
+  .prose-inst h3 {
+    @apply mt-8 text-[1.25rem];
+  }
+  .prose-inst a {
+    @apply font-semibold text-navy-600 underline underline-offset-4 hover:text-navy-900;
+  }
+  .prose-inst ul {
+    @apply list-disc space-y-2 pl-6 marker:text-gold-500;
+  }
+  .prose-inst ol {
+    @apply list-decimal space-y-2 pl-6 marker:text-navy-600;
+  }
+  .prose-inst blockquote {
+    @apply border-l-2 border-gold-500 pl-6 font-serif text-[1.25rem] italic text-navy-800;
+  }
+  .prose-inst strong {
+    @apply font-semibold text-navy-900;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
